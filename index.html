@@ -753,6 +753,157 @@
     .program-v7-shell.visible .program-v7-item:nth-child(2){transition-delay:.06s}.program-v7-shell.visible .program-v7-item:nth-child(3){transition-delay:.12s}.program-v7-shell.visible .program-v7-item:nth-child(4){transition-delay:.18s}.program-v7-shell.visible .program-v7-item:nth-child(5){transition-delay:.24s}
     @media(prefers-reduced-motion:reduce){.program-v7-item{opacity:1;transform:none;transition:none}}
 
+    /* Final visual system: brighter lime, aligned project mark, new blocks 05 and 07 */
+    :root{--green:#B3E326;--acid:#C9F15D;--ink:#1D1E19}
+    header,.hero,.about-section,.method.method-v8,.course-program.program-v7,.cta-finale{background-color:var(--green)!important;background-image:none!important}
+    .mobile-nav-cta{background:var(--green)}
+
+    /* Project block: mark and copy share one visual baseline */
+    .about-new-grid{grid-template-columns:minmax(350px,.72fr) minmax(0,1.28fr);gap:64px;align-items:start}
+    .about-visual{height:100%;min-height:520px;overflow:hidden}
+    .about-logo{inset:-4% -8% -4% -8%;width:auto;height:auto;transform:translateX(-4%) scale(.95);-webkit-mask-size:150% 150%;mask-size:150% 150%;-webkit-mask-position:center 16%;mask-position:center 16%}
+    .about-logo:before,.about-logo:after{content:"";position:absolute;inset:0;background:#fff;-webkit-mask:url("assets/logo-zemelny-start.svg") center 16%/150% 150% no-repeat;mask:url("assets/logo-zemelny-start.svg") center 16%/150% 150% no-repeat;opacity:.72}
+    .about-logo:before{transform:translateX(-1px)}.about-logo:after{transform:translateX(1px)}
+    .about-new-grid.visible .about-logo{transform:translateX(-4%) scale(1)}
+    .about-content{padding-top:4px}
+    .about-text{max-width:760px}
+
+    /* 05 — one typographic route instead of three cards */
+    .method.method-v8{position:relative;overflow:hidden;padding:122px 0 128px;color:var(--ink);isolation:isolate}
+    .method-v8-number{position:absolute;z-index:0;right:-.04em;top:.02em;color:rgba(255,255,255,.24);font:800 clamp(380px,40vw,690px)/.72 Manrope,sans-serif;letter-spacing:-.14em;pointer-events:none;user-select:none}
+    .method-v8-shell{position:relative;z-index:1}
+    .method-v8-head{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(360px,.72fr);gap:90px;align-items:end;padding-bottom:56px;border-bottom:1px solid rgba(29,30,25,.5)}
+    .method-v8-kicker{display:flex;align-items:center;gap:15px;margin-bottom:27px;color:rgba(29,30,25,.7);font:800 11px/1 Manrope,sans-serif;letter-spacing:.15em;text-transform:uppercase}
+    .method-v8-kicker:after{content:"";width:72px;height:1px;background:currentColor}
+    .method-v8-title{margin:0;font:800 clamp(62px,6.7vw,104px)/.82 Manrope,sans-serif;letter-spacing:-.075em;text-transform:uppercase}
+    .method-v8-title span,.method-v8-title em{display:block;font-style:normal}.method-v8-title span{color:#fff}.method-v8-title em{padding-left:17%}
+    .method-v8-intro{max-width:600px;margin:0;color:rgba(29,30,25,.72);font-size:19px;line-height:1.55}
+    .method-v8-route{counter-reset:route}
+    .method-v8-step{counter-increment:route;display:grid;grid-template-columns:minmax(260px,.72fr) minmax(0,1fr);gap:74px;align-items:center;min-height:188px;border-bottom:1px solid rgba(29,30,25,.5);opacity:0;transform:translateX(-34px);transition:opacity .65s ease,transform .85s cubic-bezier(.22,1,.36,1),color .28s ease,background .28s ease}
+    .method-v8-step:nth-child(2){transition-delay:.1s}.method-v8-step:nth-child(3){transition-delay:.2s}
+    .method-v8.visible .method-v8-step{opacity:1;transform:none}
+    .method-v8-step:before{content:"0" counter(route);position:absolute;left:0;color:rgba(29,30,25,.48);font:800 11px/1 Manrope,sans-serif;letter-spacing:.12em}
+    .method-v8-word{padding-left:58px;font:800 clamp(38px,4.4vw,70px)/.9 Manrope,sans-serif;letter-spacing:-.06em;text-transform:uppercase;transition:transform .35s cubic-bezier(.22,1,.36,1)}
+    .method-v8-step>div{display:grid;grid-template-columns:220px minmax(0,1fr);gap:34px;align-items:start}
+    .method-v8-step strong{font:800 12px/1.3 Manrope,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+    .method-v8-step p{max-width:590px;margin:0;color:rgba(29,30,25,.7);font-size:16px;line-height:1.6}
+    .method-v8-step:hover .method-v8-word{transform:translateX(14px);color:#fff}
+
+    /* 07 — full-width editorial course index */
+    .course-program.program-v7{padding:122px 0 132px;color:var(--ink)}
+    .program-v7-number{right:-.04em;left:auto;top:.01em;color:rgba(255,255,255,.22);font-size:clamp(380px,40vw,690px)}
+    .program-v7-shell{display:block}
+    .program-v7-intro{position:relative;top:auto;display:grid;grid-template-columns:minmax(0,.9fr) minmax(440px,1.1fr);gap:80px;align-items:end;padding-bottom:54px}
+    .program-v7-kicker,.program-v7-title{grid-column:1}
+    .program-v7-title{margin-bottom:0}
+    .program-v7-lead{grid-column:2;grid-row:1/span 2;align-self:end;max-width:690px;margin:0;font-size:19px}
+    .program-v7-facts{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);margin:56px 0 0;border-top:1px solid rgba(29,30,25,.48);border-bottom:1px solid rgba(29,30,25,.48)}
+    .program-v7-fact,.program-v7-fact:nth-child(even){padding:23px 24px 24px 0;border:0;border-left:0}
+    .program-v7-fact+.program-v7-fact{padding-left:24px;border-left:1px solid rgba(29,30,25,.42)}
+    .program-v7-list{margin-top:0;border-top:0}
+    .program-v7-item{border-bottom:1px solid rgba(29,30,25,.48)}
+    .program-v7-item summary{grid-template-columns:72px minmax(0,1fr) 152px;gap:24px;align-items:center;padding:30px 0}
+    .program-v7-summary h3{max-width:950px;font-size:clamp(28px,2.8vw,45px)}
+    .program-v7-summary p{max-width:800px;font-size:16px}
+    .program-v7-toggle{display:flex;align-items:center;justify-content:space-between;width:152px;height:52px;padding:4px 7px 4px 18px;border:1px solid var(--ink);border-radius:999px;background:var(--ink);color:#fff;font:750 11px/1 Manrope,sans-serif;letter-spacing:.03em;text-transform:uppercase;transition:background .25s ease,color .25s ease,transform .25s ease}
+    .program-v7-toggle:before{content:"Открыть";position:static;width:auto;height:auto;background:none;transform:none}
+    .program-v7-toggle:after{content:"→";position:static;display:grid;place-items:center;width:42px;height:42px;border:0;border-radius:50%;background:#fff;color:var(--ink);font:400 23px/1 Arial,sans-serif;transform:rotate(-45deg);transition:transform .3s ease}
+    .program-v7-item[open] .program-v7-toggle:before{content:"Свернуть"}
+    .program-v7-item[open] .program-v7-toggle:after{transform:rotate(45deg)}
+    .program-v7-item summary:hover .program-v7-toggle{transform:translateY(-2px);background:transparent;color:var(--ink)}
+    .program-v7-body{grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);gap:72px;padding:8px 176px 54px 96px}
+    .program-v7-item[open] .program-v7-summary h3{color:#fff}
+
+    /* One button shape and one drawn arrow across the site */
+    .primary,.nav-cta,.mobile-nav-cta,.results-lesson-btn,.tariff-action,.modal-submit{border-radius:999px}
+    .tariff-action .cta-arrow path,.finale-action .cta-arrow path{stroke:currentColor}
+    .primary,.tariff-action,.modal-submit{transition:background .25s ease,color .25s ease,transform .25s ease}
+    .primary:hover,.tariff-action:hover,.modal-submit:hover{transform:translateY(-3px)}
+
+    /* New finish — no duplicated inline form */
+    .cta-finale{position:relative;overflow:hidden;padding:112px 0 38px;color:var(--ink);isolation:isolate}
+    .cta-finale-number{position:absolute;z-index:0;right:-.04em;top:.02em;color:rgba(255,255,255,.23);font:800 clamp(390px,42vw,720px)/.72 Manrope,sans-serif;letter-spacing:-.14em;pointer-events:none}
+    .cta-finale-inner{position:relative;z-index:1}
+    .cta-finale-kicker{display:flex;align-items:center;gap:15px;margin-bottom:38px;font:800 11px/1 Manrope,sans-serif;letter-spacing:.15em;text-transform:uppercase}
+    .cta-finale-kicker:after{content:"";width:72px;height:1px;background:currentColor}
+    .cta-finale h2{max-width:1180px;margin:0;font:800 clamp(65px,7.8vw,126px)/.8 Manrope,sans-serif;letter-spacing:-.08em;text-transform:uppercase}
+    .cta-finale h2 span{display:block;color:#fff}
+    .cta-finale-bottom{display:grid;grid-template-columns:minmax(0,1fr) 390px;gap:80px;align-items:end;margin-top:54px}
+    .cta-finale-bottom p{max-width:650px;margin:0;font-size:19px;line-height:1.55}
+    .finale-action{width:100%;min-width:0}
+    .cta-finale-line{display:grid;grid-template-columns:repeat(3,1fr);margin-top:84px;border-top:1px solid rgba(29,30,25,.5)}
+    .cta-finale-line span{padding:22px 20px 0 0;font:750 10px/1.35 Manrope,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+    .cta-finale-line span+span{padding-left:24px;border-left:1px solid rgba(29,30,25,.5)}
+    .cta-finale-inner.visible h2{animation:finale-rise .9s cubic-bezier(.22,1,.36,1) both}
+    .cta-finale-inner.visible .cta-finale-bottom{animation:finale-rise .9s .14s cubic-bezier(.22,1,.36,1) both}
+    @keyframes finale-rise{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+
+    /* Simplified centered popup with one lime rule */
+    .modal-card.modal-card-simple{display:block;width:min(610px,calc(100vw - 36px));padding:0;overflow:hidden;border-radius:30px;background:var(--cream);border-top:8px solid var(--green)}
+    .modal-card-simple .modal-body{padding:44px 44px 38px}
+    .modal-simple-kicker{display:flex;align-items:center;gap:14px;margin-bottom:26px;color:#6f8d12;font:800 10px/1 Manrope,sans-serif;letter-spacing:.15em;text-transform:uppercase}
+    .modal-simple-kicker:after{content:"";width:74px;height:2px;background:var(--green)}
+    .modal-card-simple .modal-body h2{font-size:clamp(44px,6vw,62px);margin-right:44px}
+    .modal-card-simple .modal-body h2:after{display:none}
+
+    /* Mobile header crop: compensate for the SVG's built-in whitespace */
+    @media(max-width:900px){
+      header{height:106px}.nav{min-height:106px!important}
+      header .brand-logo-crop{width:90px;height:86px;overflow:hidden!important}
+      header .brand-logo-crop .brand-logo{width:148px;height:148px;max-width:none;transform:translate(-29px,0)!important;object-fit:contain}
+      header .brand-note{max-width:158px;padding-left:15px;font-size:11px;line-height:1.35}
+      .method-v8-head{grid-template-columns:1fr;gap:34px}
+      .method-v8-step{grid-template-columns:1fr;gap:25px;padding:34px 0}
+      .method-v8-step>div{grid-template-columns:190px minmax(0,1fr)}
+      .program-v7-intro{grid-template-columns:1fr;gap:28px}
+      .program-v7-kicker,.program-v7-title,.program-v7-lead{grid-column:1;grid-row:auto}
+      .program-v7-facts{grid-template-columns:repeat(2,1fr);margin-top:22px}
+      .program-v7-fact:nth-child(3){border-left:0;border-top:1px solid rgba(29,30,25,.42)}
+      .program-v7-fact:nth-child(4){border-top:1px solid rgba(29,30,25,.42)}
+      .program-v7-item summary{grid-template-columns:54px minmax(0,1fr) 142px}
+      .program-v7-body{padding-right:166px}
+      .cta-finale-bottom{grid-template-columns:1fr;gap:34px}
+    }
+    @media(max-width:560px){
+      :root{--green:#B4E72A}
+      header{height:98px}.nav{min-height:98px!important}
+      header .brand{gap:6px;align-items:center}
+      header .brand-logo-crop{width:76px;height:74px}
+      header .brand-logo-crop .brand-logo{width:126px;height:126px;transform:translate(-25px,0)!important}
+      header .brand-note{max-width:122px;padding-left:10px;font-size:9.4px;line-height:1.35}
+      .mobile-menu-toggle{gap:6px}.menu-icon{width:44px;height:44px}
+      .about-section{padding:72px 0 86px}
+      .about-new-grid{grid-template-columns:128px minmax(0,1fr);gap:10px 18px;align-items:start}
+      .about-visual{grid-column:1;grid-row:1/3;width:128px;min-height:205px;aspect-ratio:auto;overflow:hidden}
+      .about-logo{inset:-12px -30px -12px -30px;width:auto;height:auto;-webkit-mask-size:172% 172%;mask-size:172% 172%;-webkit-mask-position:center 11%;mask-position:center 11%;transform:scale(.94)}
+      .about-logo:before,.about-logo:after{-webkit-mask-size:172% 172%;mask-size:172% 172%;-webkit-mask-position:center 11%;mask-position:center 11%}
+      .about-new-grid.visible .about-logo{transform:scale(1)}
+      .about-content{display:contents}
+      .about-kicker{grid-column:2;align-self:end;margin:0 0 6px;font-size:9px;gap:8px}.about-kicker:after{width:28px}
+      .about-heading{grid-column:2;align-self:start;margin:0;font-size:35px;line-height:.88}.about-heading span{display:block}
+      .about-text{grid-column:1/-1;margin-top:24px;font-size:17px;line-height:1.58}
+      .about-number{right:-.24em;top:43%;font-size:270px}
+      .method.method-v8,.course-program.program-v7{padding:78px 0 86px}
+      .method-v8-number,.program-v7-number{font-size:300px;right:-.2em}
+      .method-v8-head{padding-bottom:36px}.method-v8-kicker,.program-v7-kicker{font-size:10px}.method-v8-kicker:after{width:50px}
+      .method-v8-title{font-size:47px}.method-v8-title em{padding-left:11%}.method-v8-intro{font-size:17px}
+      .method-v8-step{display:block;min-height:0;padding:30px 0}.method-v8-step:before{top:34px}
+      .method-v8-word{display:block;padding-left:42px;font-size:38px}
+      .method-v8-step>div{display:block;padding-left:42px;margin-top:22px}.method-v8-step strong{display:block;margin-bottom:12px}.method-v8-step p{font-size:16px}
+      .program-v7-title{font-size:48px}.program-v7-lead{font-size:17px}
+      .program-v7-facts{grid-template-columns:1fr}.program-v7-fact,.program-v7-fact:nth-child(even){padding:15px 0;border-left:0;border-top:1px solid rgba(29,30,25,.35)}.program-v7-fact:first-child{border-top:0}
+      .program-v7-item summary{grid-template-columns:38px minmax(0,1fr);gap:12px;padding:25px 0}
+      .program-v7-summary h3{font-size:23px}.program-v7-summary p{font-size:16px}
+      .program-v7-toggle{grid-column:2;width:142px;height:48px;margin-top:8px}.program-v7-toggle:after{width:38px;height:38px}
+      .program-v7-body{grid-template-columns:1fr;gap:30px;padding:2px 0 40px 50px}
+      .program-v7-topics li,.program-v7-note p{font-size:16px}
+      .cta-finale{padding:78px 0 28px}.cta-finale-number{font-size:310px;right:-.2em}
+      .cta-finale-kicker{font-size:10px}.cta-finale-kicker:after{width:48px}
+      .cta-finale h2{font-size:47px;line-height:.84}.cta-finale-bottom{margin-top:36px}.cta-finale-bottom p{font-size:17px}.cta-finale-line{grid-template-columns:1fr;margin-top:58px}.cta-finale-line span,.cta-finale-line span+span{padding:14px 0;border-left:0;border-top:1px solid rgba(29,30,25,.35)}
+      .modal-card.modal-card-simple{width:calc(100vw - 24px);border-radius:24px;border-top-width:6px}.modal-card-simple .modal-body{padding:30px 22px 24px}.modal-card-simple .modal-body h2{font-size:39px}.modal-simple-kicker{margin-bottom:22px}
+    }
+    @media(prefers-reduced-motion:reduce){.method-v8-step,.cta-finale-inner h2,.cta-finale-bottom{opacity:1;transform:none;animation:none!important;transition:none}}
+
   </style>
 </head>
 <body>
@@ -784,7 +935,7 @@
 
     <section class="outcomes results-v3" id="results"><div class="wrap results-v3-inner reveal"><div class="results-v3-head"><div><div class="results-v3-kicker">Результат обучения</div><h2 class="results-v3-title">После обучения<span>вы сможете</span></h2></div><p class="results-v3-lead">Не просто узнаете отдельные правила, а получите систему, по которой сможете самостоятельно двигаться от поиска земли до оформления участка.</p></div><div class="results-v3-list"><article class="result-v3"><span class="result-v3-no" aria-hidden="true">+</span><h3>Экономить на услугах посредников и юристов</h3><p>Получите пошаговую систему действий и шаблоны документов, чтобы самостоятельно пройти процедуру оформления участка.</p></article><article class="result-v3"><span class="result-v3-no" aria-hidden="true">+</span><h3>Найти участок в разы дешевле рыночной стоимости</h3><p>Научитесь искать свободные земельные участки под ИЖС и анализировать территорию перед подачей заявления.</p></article><article class="result-v3"><span class="result-v3-no" aria-hidden="true">+</span><h3>Самостоятельно участвовать в земельных торгах</h3><p>Поймете, как проходят торги, какие участки стоит рассматривать и как избежать распространенных ошибок.</p></article></div><div class="value-compare value-editorial" aria-label="Стоимость сопровождения и ценность обучения"><div class="value-price"><span class="value-label">Сопровождение одного участка</span><strong>100 000 ₽+</strong><p>может стоить работа посредника</p></div><div class="value-message"><span class="value-label">Ценность обучения</span><h3>Не решение на один раз<em>Система, которая остается с вами</em></h3><p>Освоите порядок действий и сможете использовать его для следующих участков без повторной оплаты посреднику.</p></div></div><div class="results-action"><div class="results-action-copy">Начните с бесплатного первого урока</div><a class="results-lesson-btn js-open-lesson" href="#lesson"><span>Получить бесплатный урок</span><i aria-hidden="true"></i></a></div></div></section>
 
-    <section class="method method-v6 reveal" id="method"><div class="method-v6-number" aria-hidden="true">05</div><div class="wrap method-v6-shell"><div class="method-v6-head"><div><div class="method-v6-kicker">Как устроено обучение</div><h2 class="method-v6-title">От понимания<span>к действию</span></h2></div><p class="method-v6-intro">Правовая основа, последовательность процедуры и рабочие инструменты собраны в один маршрут для самостоятельного получения участка под ИЖС.</p></div><div class="method-v6-route"><article class="method-v6-step"><span class="method-v6-label">Основа</span><i class="method-v6-line" aria-hidden="true"></i><h3>Теория</h3><p>Только те нормы и понятия, которые необходимы для поиска, проверки и получения земли у государства.</p></article><article class="method-v6-step"><span class="method-v6-label">Маршрут</span><i class="method-v6-line" aria-hidden="true"></i><h3>Алгоритм</h3><p>Последовательность действий от анализа территории до подготовки документов и прохождения процедуры.</p></article><article class="method-v6-step"><span class="method-v6-label">Применение</span><i class="method-v6-line" aria-hidden="true"></i><h3>Практика</h3><p>Шаблоны, схемы, примеры и разборы, с которыми вы переходите от изучения материала к работе со своим участком.</p></article></div></div></section>
+    <section class="method method-v8 reveal" id="method"><div class="method-v8-number" aria-hidden="true">05</div><div class="wrap method-v8-shell"><div class="method-v8-head"><div><div class="method-v8-kicker">Как устроено обучение</div><h2 class="method-v8-title">Понять.<span>Повторить.</span><em>Сделать.</em></h2></div><p class="method-v8-intro">Не набор разрозненных уроков, а один понятный маршрут: от правовой основы до самостоятельной работы с участком и документами.</p></div><div class="method-v8-route"><article class="method-v8-step"><span class="method-v8-word">Разобраться</span><div><strong>Правовая основа</strong><p>Поймете только те нормы и понятия, которые действительно нужны для получения земли у государства.</p></div></article><article class="method-v8-step"><span class="method-v8-word">Выстроить</span><div><strong>Маршрут действий</strong><p>Увидите всю последовательность: поиск, проверка территории, подготовка документов и прохождение процедуры.</p></div></article><article class="method-v8-step"><span class="method-v8-word">Применить</span><div><strong>Практика на своем участке</strong><p>Сможете сразу работать по готовому алгоритму, используя схемы, примеры и шаблоны документов.</p></div></article></div></div></section>
 
     <section class="author author-v6 reveal" id="author"><div class="author-v6-number" aria-hidden="true">06</div><div class="wrap author-v6-shell"><div class="author-v6-kicker">Автор проекта</div><h2 class="author-v6-title">Сложная процедура<span>становится понятной</span></h2><div class="author-v6-layout"><div class="author-v6-copy"><div class="author-v6-role">Юрист в сфере земельного права</div><h3 class="author-v6-name">Екатерина<span>Шайхудинова</span></h3><div class="author-v6-facts"><p class="author-v6-fact"><strong>Образование</strong>Заканчиваю магистратуру по направлению «Юриспруденция» и ежедневно работаю с земельными вопросами.</p><p class="author-v6-fact"><strong>Практика</strong>В своей практике работаю с предоставлением земельных участков, анализом градостроительной документации, оформлением земли и судебными спорами, связанными с отказами органов власти и применением земельного законодательства.</p></div><div class="author-v6-mission"><strong>Моя задача</strong><p>Моя задача — не грузить вас теорией, а дать четкий и понятный алгоритм, который вы сможете применить сразу. На обучении я объясняю все простыми словами и помогаю шаг за шагом применить полученные навыки.</p></div></div><div class="author-v6-photo"><img src="assets/ekaterina-waist-white.png" alt="Екатерина Шайхудинова — юрист в сфере земельного права"><div class="author-v6-caption">Практика · опыт · результат</div></div></div></div></section>
 
@@ -792,15 +943,14 @@
 
     <section class="tariffs tariffs-v2" id="tariffs"><div class="tariffs-v2-number" aria-hidden="true">08</div><div class="wrap tariffs-v2-shell reveal"><div class="tariffs-v2-head"><div><div class="tariffs-v2-kicker">Форматы участия</div><h2 class="tariffs-v2-title">Выберите<span>поддержку</span></h2></div><p class="tariffs-v2-lead">Во всех тарифах — полная программа курса, практические материалы и последовательный путь от изучения процедуры до самостоятельной работы с земельным участком.</p></div><div class="tariff-grid"><article class="tariff-card"><div class="tariff-label">Самостоятельный</div><h3>Без обратной связи</h3><div class="tariff-price">7 900 ₽</div><ul class="tariff-features"><li>доступ ко всем модулям и 70+ урокам</li><li>практические видео и пошаговые инструкции</li><li>шаблоны заявлений и документов</li><li>самостоятельное прохождение в удобном темпе</li></ul><a class="tariff-action js-open-lesson" href="#lesson"><span>Начать с первого урока</span><svg class="cta-arrow" aria-hidden="true" viewBox="0 0 26 26"><path d="M4 22 22 4M9 4h13v13"/></svg></a></article><article class="tariff-card"><div class="tariff-label">С сопровождением</div><h3>Личная обратная связь</h3><div class="tariff-price">14 900 ₽</div><ul class="tariff-features"><li>все материалы тарифа «Самостоятельный»</li><li>личная обратная связь в мессенджере</li><li>ответы на вопросы по материалам курса</li><li>поддержка в течение трех месяцев</li></ul><a class="tariff-action js-open-lesson" href="#lesson"><span>Начать с первого урока</span><svg class="cta-arrow" aria-hidden="true" viewBox="0 0 26 26"><path d="M4 22 22 4M9 4h13v13"/></svg></a></article><article class="tariff-card"><div class="tariff-label">Расширенный</div><h3>Юридическая помощь</h3><div class="tariff-price"><small>Стоимость</small><br>индивидуально</div><ul class="tariff-features"><li>все материалы тарифа «С сопровождением»</li><li>правовой анализ одного отказа органа власти</li><li>подготовка правовой позиции и плана дальнейших действий</li><li>подготовка одного искового или административного искового заявления</li><li>подготовка процессуальных документов по одному делу: ходатайств, письменных пояснений, возражений и дополнений</li></ul><p class="tariff-scope">Документальное сопровождение без представительства в судебных заседаниях.</p><a class="tariff-action js-open-lesson" href="#lesson"><span>Обсудить формат</span><svg class="cta-arrow" aria-hidden="true" viewBox="0 0 26 26"><path d="M4 22 22 4M9 4h13v13"/></svg></a></article></div></div></section>
 
-    <section class="cta" id="lesson"><div class="wrap cta-grid reveal"><div><div class="eyebrow">Бесплатный доступ</div><h2>Получите<br><span>первый урок</span></h2><p>Оставьте заявку — и вам придет доступ к первому уроку.</p></div><form class="form" id="leadForm"><input required aria-label="Ваше имя" placeholder="Ваше имя"><input required type="tel" aria-label="Телефон" placeholder="Телефон"><button type="submit"><span>Получить первый урок</span><svg class="cta-arrow" aria-hidden="true" viewBox="0 0 26 26"><path d="M4 22 22 4M9 4h13v13"/></svg></button><label class="consent"><input required type="checkbox"> Даю согласие на обработку персональных данных</label><div class="success">Спасибо! Заявка принята.</div></form></div></section>
+    <section class="cta-finale" id="lesson"><div class="cta-finale-number" aria-hidden="true">09</div><div class="wrap cta-finale-inner reveal"><div class="cta-finale-kicker">Первый шаг — бесплатно</div><h2>Земля становится<br><span>понятнее с первого урока</span></h2><div class="cta-finale-bottom"><p>Начните с главного: разберитесь, как устроен путь к участку у государства и какие действия действительно ведут к результату.</p><a class="primary finale-action js-open-lesson" href="#lesson"><span>Получить бесплатный урок</span><i aria-hidden="true">↗</i></a></div><div class="cta-finale-line" aria-hidden="true"><span>Понятная процедура</span><span>Самостоятельные решения</span><span>Знания на годы</span></div></div></section>
   </main>
 
-  <dialog class="lesson-modal" id="lessonDialog" aria-labelledby="lessonDialogTitle"><div class="modal-card"><button class="modal-close" type="button" aria-label="Закрыть окно">×</button><aside class="modal-visual"><div class="modal-logo-stage"><img class="modal-logo" src="assets/logo-zemelny-start.svg" alt=""></div><div class="modal-visual-title">Бесплатный<br>первый урок</div></aside><div class="modal-body"><h2 id="lessonDialogTitle">Начните с главного</h2><p>Заполните форму, чтобы получить материалы.</p><form class="modal-form" id="lessonModalForm"><label class="modal-field"><span>Имя</span><input required type="text" name="name" autocomplete="name" placeholder="Введите имя"></label><label class="modal-field"><span>Телефон</span><input required type="tel" name="phone" autocomplete="tel" placeholder="+7 999 000-00-00"></label><label class="modal-field"><span>Электронная почта</span><input required type="email" name="email" autocomplete="email" placeholder="mail@example.ru"></label><button class="modal-submit" type="submit"><span>Получить бесплатный урок</span><svg class="cta-arrow" aria-hidden="true" viewBox="0 0 26 26"><path d="M4 22 22 4M9 4h13v13"/></svg></button><label class="modal-consent"><input required type="checkbox" name="consent"> <span>Даю согласие на обработку персональных данных</span></label><div class="modal-success">Спасибо! Данные приняты.</div></form></div></div></dialog>
+  <dialog class="lesson-modal" id="lessonDialog" aria-labelledby="lessonDialogTitle"><div class="modal-card modal-card-simple"><button class="modal-close" type="button" aria-label="Закрыть окно">×</button><div class="modal-body"><div class="modal-simple-kicker">Бесплатный первый урок</div><h2 id="lessonDialogTitle">Начните с главного</h2><p>Оставьте контакты — мы отправим вам доступ к первому уроку.</p><form class="modal-form" id="lessonModalForm"><label class="modal-field"><span>Имя</span><input required type="text" name="name" autocomplete="name" placeholder="Введите имя"></label><label class="modal-field"><span>Телефон</span><input required type="tel" name="phone" autocomplete="tel" placeholder="+7 999 000-00-00"></label><label class="modal-field"><span>Электронная почта</span><input required type="email" name="email" autocomplete="email" placeholder="mail@example.ru"></label><button class="modal-submit" type="submit"><span>Получить бесплатный урок</span><svg class="cta-arrow" aria-hidden="true" viewBox="0 0 26 26"><path d="M4 22 22 4M9 4h13v13"/></svg></button><label class="modal-consent"><input required type="checkbox" name="consent"> <span>Даю согласие на обработку персональных данных</span></label><div class="modal-success">Спасибо! Данные приняты.</div></form></div></div></dialog>
 
   <footer><div class="wrap footer-grid"><a class="brand" href="#top"><img class="brand-logo" src="assets/logo-zemelny-start.svg" alt="Логотип проекта «Земельный старт»"></a><div class="footer-small">Образовательный проект<br>Екатерины Шайхудиновой</div></div></footer>
   <script>
     const io=new IntersectionObserver((entries)=>entries.forEach(e=>e.isIntersecting&&e.target.classList.add('visible')),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-    document.getElementById('leadForm').addEventListener('submit',e=>{e.preventDefault();e.currentTarget.classList.add('sent')});
     const lessonDialog=document.getElementById('lessonDialog'),lessonModalForm=document.getElementById('lessonModalForm');document.querySelectorAll('.js-open-lesson').forEach(button=>button.addEventListener('click',event=>{event.preventDefault();lessonDialog.showModal();document.body.style.overflow='hidden';setTimeout(()=>lessonModalForm.querySelector('input').focus(),50)}));lessonDialog.querySelector('.modal-close').addEventListener('click',()=>lessonDialog.close());lessonDialog.addEventListener('click',event=>{if(event.target===lessonDialog)lessonDialog.close()});lessonDialog.addEventListener('close',()=>{document.body.style.overflow=''});lessonModalForm.addEventListener('submit',event=>{event.preventDefault();lessonModalForm.classList.add('sent')});
     const mobileNav=document.getElementById('mobileNav'),mobileMenuToggle=document.getElementById('mobileMenuToggle'),mobileMenuClose=mobileNav.querySelector('.mobile-nav-close');const openMobileMenu=()=>{mobileNav.classList.add('open');mobileNav.setAttribute('aria-hidden','false');mobileMenuToggle.setAttribute('aria-expanded','true')};const closeMobileMenu=()=>{mobileNav.classList.remove('open');mobileNav.setAttribute('aria-hidden','true');mobileMenuToggle.setAttribute('aria-expanded','false')};mobileMenuToggle.addEventListener('click',()=>mobileNav.classList.contains('open')?closeMobileMenu():openMobileMenu());mobileMenuClose.addEventListener('click',closeMobileMenu);mobileNav.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMobileMenu));document.addEventListener('click',event=>{if(mobileNav.classList.contains('open')&&!mobileNav.contains(event.target)&&!mobileMenuToggle.contains(event.target))closeMobileMenu()});
   </script>
