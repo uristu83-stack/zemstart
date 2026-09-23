@@ -996,9 +996,9 @@
     .method-v8-step{position:relative}
     @media(min-width:901px){
       .about-section{padding:96px 0!important}
-      .about-logo{inset:-4% -8%;-webkit-mask-size:150% 150%;mask-size:150% 150%;-webkit-mask-position:center 16%;mask-position:center 16%;transform:translateX(-4%) scale(.96)}
-      .about-logo:before,.about-logo:after{-webkit-mask-size:150% 150%;mask-size:150% 150%;-webkit-mask-position:center 16%;mask-position:center 16%}
-      .about-new-grid.visible .about-logo{transform:translateX(-4%) scale(1)}
+      .about-logo{inset:0;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-position:center;mask-position:center;transform:scale(.96)}
+      .about-logo:before,.about-logo:after{-webkit-mask-size:contain;mask-size:contain;-webkit-mask-position:center;mask-position:center}
+      .about-new-grid.visible .about-logo{transform:scale(1)}
     }
     @media(prefers-reduced-motion:reduce){.author-v6-photo,.author-v6-fact{clip-path:none;opacity:1;transform:none;transition:none}}
 
