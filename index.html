@@ -1428,8 +1428,8 @@ header,.hero,.project-section,.study-section,.syllabus-section,.ending-section{b
 /* Project: a real two-column chapter, with the full mark above its copy on phones. */
 .project-section{position:relative;overflow:hidden;color:#20221d;padding:92px 0 106px}
 .project-grid{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:clamp(50px,7vw,116px);align-items:center;position:relative}
-.project-logo-frame{position:relative;min-width:0;height:480px;overflow:hidden}
-.project-logo-frame img{position:absolute;left:50%;top:50%;width:160%;height:auto;max-width:none;transform:translate(-50%,-50%);filter:brightness(0) invert(1)}
+.project-logo-frame{position:relative;min-width:0;height:500px;overflow:hidden}
+.project-logo-frame img{position:absolute;left:50%;top:50%;width:138%;height:auto;max-width:none;transform:translate(-50%,-50%);filter:brightness(0) invert(1)}
 .project-copy{position:relative;min-width:0;padding:0}
 .project-kicker{display:flex;align-items:center;gap:16px;font:800 11px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase}
 .project-kicker:after{content:"";width:74px;height:1px;background:currentColor;opacity:.6}
@@ -1447,7 +1447,7 @@ header,.hero,.project-section,.study-section,.syllabus-section,.ending-section{b
   .project-section{padding:69px 0 82px}
   .project-grid{display:block}
   .project-logo-frame{height:min(108vw,470px);width:100%;margin-bottom:34px}
-  .project-logo-frame img{width:160%}
+  .project-logo-frame img{width:145%}
   .project-copy h2{margin:25px 0 26px;font-size:clamp(48px,11vw,72px);line-height:.89}
   .project-copy p{font-size:17px;line-height:1.54;margin-bottom:20px}
   .project-number{right:-.04em;bottom:0;font-size:clamp(210px,60vw,380px)}
@@ -1456,7 +1456,7 @@ header,.hero,.project-section,.study-section,.syllabus-section,.ending-section{b
 }
 
 /* Section 05: concise format, then a course progress strip. */
-.study-section{position:relative;padding:100px 0 108px;color:#20221d;overflow:hidden}
+.study-section{position:relative;padding:78px 0 82px;color:#20221d;overflow:hidden}
 .study-shell{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:60px 10%;align-items:start}
 .study-eyebrow{display:flex;justify-content:space-between;gap:12px;padding-bottom:18px;border-bottom:1px solid rgba(32,34,29,.56);font:800 11px/1.2 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase}
 .study-eyebrow span:last-child{color:rgba(32,34,29,.62)}
@@ -1488,6 +1488,7 @@ header,.hero,.project-section,.study-section,.syllabus-section,.ending-section{b
   .study-platform strong{font-size:22px}
   .study-platform small{grid-column:1/-1}
 }
+@media(max-width:560px){.study-platform{display:none}}
 
 /* Section 06: portrait left, editorial biography on the right, no cards. */
 .profile-section{position:relative;overflow:hidden;padding:100px 0 105px;color:#fff}
@@ -1528,7 +1529,7 @@ header,.hero,.project-section,.study-section,.syllabus-section,.ending-section{b
 .syllabus-intro{position:sticky;top:128px}
 .syllabus-eyebrow{padding-bottom:16px;border-bottom:1px solid rgba(32,34,29,.57);font:800 11px/1.1 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase}
 .syllabus-intro h2{margin:31px 0 27px;font:800 clamp(55px,6vw,91px)/.86 Manrope,sans-serif;text-transform:uppercase;letter-spacing:-.07em}
-.syllabus-intro h2 span{color:#fff}
+.syllabus-intro h2 span{display:block;white-space:nowrap;color:#fff;font-size:clamp(40px,3.8vw,58px);letter-spacing:-.065em;margin-top:8px}
 .syllabus-intro>p{max-width:430px;margin:0;font-size:18px;line-height:1.55}
 .syllabus-total{display:flex;align-items:end;gap:15px;margin-top:50px;padding-top:21px;border-top:1px solid rgba(32,34,29,.57)}
 .syllabus-total strong{font:800 clamp(68px,8vw,116px)/.75 Manrope,sans-serif;letter-spacing:-.09em}
@@ -1564,6 +1565,7 @@ header,.hero,.project-section,.study-section,.syllabus-section,.ending-section{b
 @media(max-width:560px){
   .syllabus-section{padding:76px 0 88px}
   .syllabus-intro h2{font-size:clamp(49px,12vw,68px)}
+  .syllabus-intro h2 span{font-size:clamp(41px,10vw,55px)}
   .syllabus-intro>p{font-size:17px}
   .syllabus-module summary{grid-template-columns:27px minmax(0,1fr) 29px;gap:9px;padding:21px 0}
   .syllabus-heading{font-size:clamp(22px,5.6vw,28px)}
