@@ -1382,6 +1382,252 @@
     }
     @media(prefers-reduced-motion:reduce){.author-v6-photo img,.program-v7-toggle:after{transition:none}}
 
+  /* September editorial rebuild: one color token and fresh compositions. */
+:root{--green:#bee652;--acid:#bee652;--ink:#20221d;--cream:#fbfcf7;--pale:#f3f7e8;--line:#dce2cf}
+html{scroll-behavior:smooth}
+body{background:#20221d}
+header,.hero,.project-section,.study-section,.syllabus-section,.ending-section{background:#bee652!important;background-image:none!important}
+.audience,.outcomes.results-v3,.profile-section,.tariffs.tariffs-v2,footer{background:#20221d!important;background-image:none!important}
+
+/* The SVG has wide empty margins. Crop those margins symmetrically. */
+@media(max-width:900px){
+  header{position:sticky;top:0;z-index:70;height:100px;border-bottom:1px solid rgba(32,34,29,.19)}
+  header .nav{min-height:100px!important;display:flex;justify-content:space-between;gap:10px}
+  header .brand{flex:0 1 auto;min-width:0;gap:7px;align-items:center}
+  header .brand-logo-crop{display:block;flex:0 0 68px;width:68px;height:88px;overflow:hidden!important;position:relative}
+  header .brand-logo-crop .brand-logo{position:absolute;left:-24px;top:-12px;width:116px;height:116px;max-width:none;object-fit:contain;transform:none!important}
+  header .brand-note{display:block!important;max-width:136px;min-width:0;margin:0;padding:0 0 0 11px;border-left:1px solid rgba(32,34,29,.75);font-size:10.5px;line-height:1.33}
+  .mobile-menu-toggle{display:flex;flex:0 0 auto;align-items:center;gap:7px;padding:0;font-size:10px}
+  .menu-icon{width:44px;height:44px}
+  .mobile-nav{position:fixed;z-index:80;top:99px;right:14px;left:auto;width:min(260px,calc(100vw - 28px));max-height:calc(100dvh - 112px);overflow:auto;padding:10px 17px 17px;border:1px solid rgba(255,255,255,.12);border-radius:0 0 18px 18px;box-shadow:0 18px 40px rgba(18,20,15,.24)}
+  .mobile-nav-head{display:none}
+  .mobile-nav-links{margin:0 0 12px}
+  .mobile-nav-links a{padding:12px 0;font:750 14px/1.15 Manrope,sans-serif;letter-spacing:.015em}
+  .mobile-nav-cta{min-height:49px;padding:11px 15px;font-size:11px}
+  .mobile-nav-cta .cta-arrow{width:20px;height:20px;flex-basis:20px}
+}
+@media(max-width:390px){
+  header .brand-note{max-width:116px;font-size:9px;line-height:1.3;padding-left:8px}
+  header .brand{gap:5px}
+  header .brand-logo-crop{flex-basis:65px;width:65px}
+  header .brand-logo-crop .brand-logo{left:-25px}
+  .mobile-menu-toggle{font-size:9px;gap:6px}
+  .menu-icon{width:41px;height:41px}
+}
+@media(max-width:340px){header .brand-note{max-width:98px;font-size:8.5px}}
+
+/* Section 02: the axis, the diamonds, and their stems share one coordinate. */
+.audience-cases{padding-left:76px}
+.audience-cases:before{left:15px;background:linear-gradient(to bottom,transparent,#bee652 10%,#bee652 90%,transparent)}
+.audience-case:before{left:-67px;top:12px;width:12px;height:12px;border:1px solid #bee652;background:#20221d;box-sizing:border-box}
+.audience-case:after{left:-55px;top:18px;width:43px;height:1px;background:#bee652;opacity:.7}
+.audience-case:hover:after{width:43px}
+@media(max-width:900px){.audience-cases{padding-left:56px}.audience-cases:before{left:12px}.audience-case:before{left:-50px}.audience-case:after{left:-38px;width:26px}.audience-case:hover:after{width:26px}}
+@media(max-width:560px){.audience-cases{padding:5px 0 5px 45px}.audience-cases:before{left:9px}.audience-case:before{left:-42px;top:9px}.audience-case:after{left:-30px;top:15px;width:18px}.audience-case:hover:after{width:18px}}
+
+/* Project: a real two-column chapter, with the full mark above its copy on phones. */
+.project-section{position:relative;overflow:hidden;color:#20221d;padding:92px 0 106px}
+.project-grid{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:clamp(50px,7vw,116px);align-items:center;position:relative}
+.project-logo-frame{position:relative;min-width:0;height:480px;overflow:hidden}
+.project-logo-frame img{position:absolute;left:50%;top:50%;width:160%;height:auto;max-width:none;transform:translate(-50%,-50%);filter:brightness(0) invert(1)}
+.project-copy{position:relative;min-width:0;padding:0}
+.project-kicker{display:flex;align-items:center;gap:16px;font:800 11px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.project-kicker:after{content:"";width:74px;height:1px;background:currentColor;opacity:.6}
+.project-copy h2{position:relative;z-index:1;margin:32px 0 34px;font:800 clamp(53px,5.3vw,83px)/.9 Manrope,sans-serif;letter-spacing:-.07em;text-transform:uppercase}
+.project-copy h2 span{display:block;color:#fff}
+.project-copy p{position:relative;z-index:1;margin:0 0 23px;max-width:630px;font-size:clamp(17px,1.6vw,21px);line-height:1.55}
+.project-copy p strong{font-weight:800}
+.project-number{position:absolute;z-index:0;right:-.1em;bottom:-.32em;font:800 clamp(260px,35vw,520px)/1 Manrope,sans-serif;letter-spacing:-.14em;color:rgba(255,255,255,.18);pointer-events:none}
+.project-end{display:flex;gap:14px;align-items:center;margin-top:26px;padding-top:18px;border-top:1px solid rgba(32,34,29,.45);font:800 10px/1.4 Manrope,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.project-end span+span:before{content:"/";margin-right:14px}
+.project-grid.visible .project-logo-frame{animation:project-rise .85s ease both}
+.project-grid.visible .project-copy{animation:project-rise .85s .1s ease both}
+@keyframes project-rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@media(max-width:800px){
+  .project-section{padding:69px 0 82px}
+  .project-grid{display:block}
+  .project-logo-frame{height:min(108vw,470px);width:100%;margin-bottom:34px}
+  .project-logo-frame img{width:160%}
+  .project-copy h2{margin:25px 0 26px;font-size:clamp(48px,11vw,72px);line-height:.89}
+  .project-copy p{font-size:17px;line-height:1.54;margin-bottom:20px}
+  .project-number{right:-.04em;bottom:0;font-size:clamp(210px,60vw,380px)}
+  .project-end{font-size:9px;gap:10px;flex-wrap:wrap}
+  .project-end span+span:before{margin-right:10px}
+}
+
+/* Section 05: concise format, then a course progress strip. */
+.study-section{position:relative;padding:100px 0 108px;color:#20221d;overflow:hidden}
+.study-shell{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:60px 10%;align-items:start}
+.study-eyebrow{display:flex;justify-content:space-between;gap:12px;padding-bottom:18px;border-bottom:1px solid rgba(32,34,29,.56);font:800 11px/1.2 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.study-eyebrow span:last-child{color:rgba(32,34,29,.62)}
+.study-heading h2{margin:37px 0 26px;font:800 clamp(48px,5.3vw,81px)/.91 Manrope,sans-serif;letter-spacing:-.065em;text-transform:uppercase}
+.study-heading h2 em{font-style:normal;color:#fff}
+.study-heading>p{max-width:620px;margin:0;font-size:18px;line-height:1.58}
+.study-features{padding-top:14px}
+.study-features article{display:grid;grid-template-columns:42px 1fr;gap:16px;padding:23px 0;border-bottom:1px solid rgba(32,34,29,.55)}
+.study-features article:first-child{border-top:1px solid rgba(32,34,29,.55)}
+.study-features article>span{padding-top:3px;font:800 12px/1 Manrope,sans-serif}
+.study-features h3{margin:0 0 8px;font:800 clamp(21px,2vw,29px)/1.1 Manrope,sans-serif;letter-spacing:-.04em;text-transform:uppercase}
+.study-features p{margin:0;font-size:15px;line-height:1.52}
+.study-platform{grid-column:1/-1;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:end;margin-top:4px;padding:24px 29px 22px;background:#20221d;color:#fff}
+.study-platform>span{grid-column:1/-1;color:#bee652;font:800 10px/1 Manrope,sans-serif;letter-spacing:.17em;text-transform:uppercase}
+.study-platform strong{font:800 clamp(22px,2.3vw,33px)/1.05 Manrope,sans-serif;text-transform:uppercase;letter-spacing:-.035em}
+.study-platform small{font-size:12px;color:rgba(255,255,255,.72)}
+.study-progress{grid-column:1/-1;display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin-top:4px}
+.study-progress i{height:3px;background:rgba(255,255,255,.26)}
+.study-progress i:nth-child(-n+3){background:#bee652}
+@media(max-width:800px){
+  .study-section{padding:73px 0 78px}
+  .study-shell{display:block}
+  .study-heading h2{font-size:clamp(44px,10vw,68px);margin:27px 0 22px}
+  .study-heading>p{font-size:17px}
+  .study-features{padding-top:26px}
+  .study-features article{padding:19px 0;grid-template-columns:33px 1fr}
+  .study-features h3{font-size:23px}
+  .study-platform{margin-top:27px;padding:20px;gap:12px}
+  .study-platform strong{font-size:22px}
+  .study-platform small{grid-column:1/-1}
+}
+
+/* Section 06: portrait left, editorial biography on the right, no cards. */
+.profile-section{position:relative;overflow:hidden;padding:100px 0 105px;color:#fff}
+.profile-top{display:flex;justify-content:space-between;gap:15px;padding-bottom:17px;border-bottom:1px solid rgba(255,255,255,.34);font:800 11px/1.2 Manrope,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:#bee652}
+.profile-title{margin:38px 0 42px;font:800 clamp(48px,5.25vw,84px)/.89 Manrope,sans-serif;letter-spacing:-.07em;text-transform:uppercase}
+.profile-title span{color:#bee652}
+.profile-grid{display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);gap:clamp(45px,8vw,124px);align-items:end}
+.profile-portrait{position:relative;min-width:0;height:660px;overflow:hidden;margin:0;isolation:isolate;background:#33362d}
+.profile-photo-backdrop{position:absolute;inset:8% 0 0 10%;background:#bee652;border-radius:50% 50% 0 0}
+.profile-portrait img{position:absolute;z-index:1;bottom:-19%;left:50%;height:119%;width:auto;max-width:none;transform:translateX(-50%);object-fit:contain;filter:drop-shadow(0 16px 23px rgba(0,0,0,.2))}
+.profile-portrait figcaption{position:absolute;z-index:2;left:23px;bottom:23px;font:800 10px/1 Manrope,sans-serif;text-transform:uppercase;letter-spacing:.15em;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.profile-role{margin:0 0 13px;color:#bee652;font:800 11px/1.3 Manrope,sans-serif;letter-spacing:.15em;text-transform:uppercase}
+.profile-copy h3{margin:0 0 28px;font:800 clamp(44px,4.4vw,69px)/.9 Manrope,sans-serif;text-transform:uppercase;letter-spacing:-.06em;overflow-wrap:anywhere}
+.profile-main{margin:0 0 29px;max-width:620px;font-size:19px;line-height:1.52;color:rgba(255,255,255,.92)}
+.profile-notes{border-top:1px solid rgba(255,255,255,.35)}
+.profile-notes p{display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;margin:0;padding:19px 0;border-bottom:1px solid rgba(255,255,255,.35);font-size:15px;line-height:1.55;color:rgba(255,255,255,.78)}
+.profile-notes span{color:#bee652;font:800 11px/1.5 Manrope,sans-serif;text-transform:uppercase;letter-spacing:.09em}
+.profile-quote{max-width:1000px;margin:59px 0 0;padding:0 0 0 26px;border-left:3px solid #bee652;font:650 clamp(22px,2.35vw,34px)/1.38 Manrope,sans-serif;letter-spacing:-.035em}
+.profile-shell.visible .profile-portrait{animation:project-rise 1s ease both}
+.profile-shell.visible .profile-copy{animation:project-rise 1s .1s ease both}
+@media(max-width:800px){
+  .profile-section{padding:74px 0 82px}
+  .profile-top span:last-child{display:none}
+  .profile-title{margin:28px 0 31px;font-size:clamp(41px,10.4vw,62px)}
+  .profile-grid{display:block}
+  .profile-portrait{height:min(115vw,560px)}
+  .profile-portrait img{height:117%;bottom:-19%}
+  .profile-copy{padding-top:30px}
+  .profile-copy h3{font-size:clamp(43px,10vw,64px)}
+  .profile-main{font-size:17px}
+  .profile-notes p{grid-template-columns:1fr;gap:7px;font-size:16px}
+  .profile-quote{margin-top:34px;font-size:22px;padding-left:16px}
+}
+
+/* Section 07: side index and ruled syllabus instead of panels. */
+.syllabus-section{padding:103px 0 120px;color:#20221d;overflow:hidden}
+.syllabus-shell{display:grid;grid-template-columns:minmax(280px,.68fr) minmax(0,1.32fr);gap:clamp(58px,8vw,130px);align-items:start}
+.syllabus-intro{position:sticky;top:128px}
+.syllabus-eyebrow{padding-bottom:16px;border-bottom:1px solid rgba(32,34,29,.57);font:800 11px/1.1 Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+.syllabus-intro h2{margin:31px 0 27px;font:800 clamp(55px,6vw,91px)/.86 Manrope,sans-serif;text-transform:uppercase;letter-spacing:-.07em}
+.syllabus-intro h2 span{color:#fff}
+.syllabus-intro>p{max-width:430px;margin:0;font-size:18px;line-height:1.55}
+.syllabus-total{display:flex;align-items:end;gap:15px;margin-top:50px;padding-top:21px;border-top:1px solid rgba(32,34,29,.57)}
+.syllabus-total strong{font:800 clamp(68px,8vw,116px)/.75 Manrope,sans-serif;letter-spacing:-.09em}
+.syllabus-total span{max-width:180px;padding-bottom:3px;font-size:13px;line-height:1.32}
+.syllabus-list{border-top:2px solid #20221d;min-width:0}
+.syllabus-module{border-bottom:1px solid rgba(32,34,29,.55)}
+.syllabus-module summary{display:grid;grid-template-columns:32px minmax(0,1fr) 31px;gap:15px;align-items:start;cursor:pointer;list-style:none;padding:22px 0 25px}
+.syllabus-module summary::-webkit-details-marker{display:none}
+.syllabus-index{padding-top:6px;font:800 12px/1 Manrope,sans-serif}
+.syllabus-heading{font:800 clamp(22px,2.2vw,34px)/1.03 Manrope,sans-serif;text-transform:uppercase;letter-spacing:-.045em}
+.syllabus-toggle{width:29px;height:29px;position:relative;border:1px solid rgba(32,34,29,.64);border-radius:50%;transition:transform .25s,background .25s}
+.syllabus-toggle:before,.syllabus-toggle:after{content:"";position:absolute;left:7px;top:13px;width:13px;height:1px;background:#20221d}
+.syllabus-toggle:after{transform:rotate(90deg)}
+.syllabus-module[open] .syllabus-toggle{background:#20221d;transform:rotate(45deg)}
+.syllabus-module[open] .syllabus-toggle:before,.syllabus-module[open] .syllabus-toggle:after{background:#bee652}
+.syllabus-content{padding:0 30px 30px 47px;animation:project-rise .4s ease both}
+.syllabus-description{max-width:680px;margin:0 0 26px;font-size:17px;line-height:1.53}
+.syllabus-columns{display:grid;grid-template-columns:minmax(0,1fr) minmax(175px,.63fr);gap:35px;align-items:start}
+.syllabus-columns h4{margin:0 0 14px;font:800 11px/1.2 Manrope,sans-serif;letter-spacing:.13em;text-transform:uppercase}
+.syllabus-columns ul{list-style:none;padding:0;margin:0}
+.syllabus-columns li{position:relative;padding:0 0 10px 17px;margin:0 0 10px;border-bottom:1px solid rgba(32,34,29,.22);font-size:14px;line-height:1.45}
+.syllabus-columns li:before{content:"—";position:absolute;left:0}
+.syllabus-outcome{padding-left:18px;border-left:2px solid #20221d}
+.syllabus-outcome .syllabus-note+.syllabus-note{margin-top:26px;padding-top:20px;border-top:1px solid rgba(32,34,29,.3)}
+.syllabus-note p{margin:0;font-size:14px;line-height:1.55}
+@media(max-width:950px){
+  .syllabus-shell{display:block}
+  .syllabus-intro{position:static;margin-bottom:43px}
+  .syllabus-intro h2{font-size:clamp(50px,10vw,84px)}
+  .syllabus-intro>p{max-width:700px}
+  .syllabus-total{max-width:430px;margin-top:30px}
+}
+@media(max-width:560px){
+  .syllabus-section{padding:76px 0 88px}
+  .syllabus-intro h2{font-size:clamp(49px,12vw,68px)}
+  .syllabus-intro>p{font-size:17px}
+  .syllabus-module summary{grid-template-columns:27px minmax(0,1fr) 29px;gap:9px;padding:21px 0}
+  .syllabus-heading{font-size:clamp(22px,5.6vw,28px)}
+  .syllabus-content{padding:0 0 28px 0}
+  .syllabus-description{font-size:16px}
+  .syllabus-columns{display:block}
+  .syllabus-columns li{font-size:15px}
+  .syllabus-outcome{margin-top:27px}
+}
+
+/* Section 09: a definite ending and a single primary action. */
+.ending-section{position:relative;overflow:hidden;padding:105px 0 92px;color:#20221d}
+.ending-section:before{content:"";position:absolute;right:-12vw;top:-12vw;width:62vw;height:62vw;border:1px solid rgba(32,34,29,.24);border-radius:50%;pointer-events:none}
+.ending-section:after{content:"";position:absolute;right:0;bottom:0;width:25%;height:1px;background:#20221d}
+.ending-shell{position:relative;z-index:1}
+.ending-eyebrow{margin-bottom:42px;font:800 11px/1.2 Manrope,sans-serif;letter-spacing:.17em;text-transform:uppercase}
+.ending-main{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(250px,.5fr);gap:7%;align-items:end}
+.ending-main h2{margin:0;font:800 clamp(63px,7vw,112px)/.86 Manrope,sans-serif;letter-spacing:-.075em;text-transform:uppercase}
+.ending-main h2 span{color:#fff}
+.ending-main p{max-width:330px;margin:0;font-size:17px;line-height:1.57}
+.ending-bottom{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:88px;padding-top:26px;border-top:1px solid rgba(32,34,29,.55);font:800 11px/1.2 Manrope,sans-serif;text-transform:uppercase;letter-spacing:.12em}
+.ending-button{display:flex;align-items:center;justify-content:space-between;gap:30px;width:min(440px,100%);min-height:64px;padding:15px 21px 15px 27px;border:1px solid #20221d;border-radius:999px;background:#20221d;color:#fff;font:750 16px/1.1 Manrope,sans-serif;letter-spacing:0;text-transform:none;transition:transform .3s,background .3s,color .3s}
+.ending-button:hover{transform:translateY(-3px);background:transparent;color:#20221d}
+@media(max-width:800px){
+  .ending-section{padding:76px 0 78px}
+  .ending-eyebrow{margin-bottom:29px}
+  .ending-main{display:block}
+  .ending-main h2{font-size:clamp(45px,10.2vw,78px)}
+  .ending-main p{max-width:580px;margin-top:27px;font-size:17px}
+  .ending-bottom{display:block;margin-top:42px;padding-top:20px}
+  .ending-button{margin-top:21px;width:100%;min-height:62px;padding:14px 22px;font-size:16px}
+  .ending-section:before{width:78vw;height:78vw;right:-28vw;top:20%}
+}
+
+/* The same clean SVG arrow on every primary action. */
+.nav-cta,.primary,.results-lesson-btn,.tariff-action,.ending-button,.mobile-nav-cta{overflow:visible}
+svg.cta-arrow, .tariff-action svg.cta-arrow,.results-lesson-btn svg.cta-arrow{display:block;flex:0 0 25px;width:25px;height:25px;min-width:25px;position:relative;opacity:1;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;transform:none;transition:transform .25s ease;color:inherit}
+.cta-arrow path,.primary .cta-arrow path,.nav-cta .cta-arrow path,.results-lesson-btn .cta-arrow path,.tariff-action .cta-arrow path,.ending-button .cta-arrow path,.mobile-nav-cta .cta-arrow path{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:square;stroke-linejoin:miter}
+.nav-cta,.primary,.ending-button{color:#fff}
+.results-lesson-btn{color:#fff;background:transparent!important;border:1px solid #fff}
+.tariff-action{background:transparent!important;color:#fff}
+.mobile-nav-cta{color:#20221d}
+.nav-cta:hover .cta-arrow,.primary:hover .cta-arrow,.results-lesson-btn:hover .cta-arrow,.tariff-action:hover .cta-arrow,.ending-button:hover .cta-arrow,.mobile-nav-cta:hover .cta-arrow{transform:translate(3px,-3px)}
+@media(max-width:560px){
+  .primary,.results-lesson-btn,.tariff-action,.ending-button{font-size:15px;gap:17px}
+  svg.cta-arrow{flex-basis:23px;width:23px;height:23px;min-width:23px}
+  .results-lesson-btn span,.tariff-action span,.ending-button span{min-width:0}
+}
+
+/* Useful footer links without inventing legal documents or social accounts. */
+.site-footer{color:#fff;padding:66px 0 22px}
+.footer-shell{display:grid;grid-template-columns:1.25fr .55fr .8fr .8fr;gap:40px 6%;align-items:start}
+.footer-identity strong{display:block;color:#bee652;font:800 clamp(32px,3.4vw,52px)/.88 Manrope,sans-serif;letter-spacing:-.06em}
+.footer-identity>span{display:block;margin-top:23px;font-size:13px;line-height:1.5;color:rgba(255,255,255,.66)}
+.footer-nav,.footer-contact,.footer-documents{display:flex;flex-direction:column;align-items:start;gap:11px;font-size:13px;line-height:1.45}
+.footer-shell b{margin:0 0 13px;color:#bee652;font:800 11px/1.3 Manrope,sans-serif;letter-spacing:.13em;text-transform:uppercase}
+.footer-shell a{border-bottom:1px solid transparent;transition:border-color .2s}
+.footer-shell a:hover{border-bottom-color:#bee652}
+.footer-contact p,.footer-documents span{margin:0;color:rgba(255,255,255,.58)}
+.footer-end{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.24);font-size:12px;color:rgba(255,255,255,.65)}
+@media(max-width:800px){.footer-shell{grid-template-columns:repeat(2,minmax(0,1fr));gap:35px 22px}.footer-identity{grid-column:1/-1}.site-footer{padding:54px 0 22px}}
+@media(max-width:450px){.footer-shell{grid-template-columns:1fr 1fr;gap:35px 12px}.footer-documents,.footer-contact{grid-column:span 1}.footer-shell b{font-size:10px}.footer-nav,.footer-contact,.footer-documents{font-size:12px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.project-grid.visible .project-logo-frame,.project-grid.visible .project-copy,.profile-shell.visible .profile-portrait,.profile-shell.visible .profile-copy,.syllabus-content{animation:none!important}}
+
   </style>
 </head>
 <body>
@@ -1409,29 +1655,117 @@
 
     <section class="audience" id="audience"><div class="wrap audience-grid reveal"><div class="audience-head"><div class="audience-kicker">Для кого этот проект</div><h2 class="audience-title">Для тех, кто хочет<span>действовать сам</span></h2><p class="audience-intro">«Земельный старт» рассчитан на обучение с нуля. Вы последовательно разберетесь в процедуре, поймете, что и в каком порядке делать, и сможете пройти этот путь самостоятельно.</p></div><div class="audience-cases"><article class="audience-case"><div class="audience-step">Старт без опыта</div><h3>Начать <span>с нуля</span></h3><p>Понять, где искать землю у государства, с чего начинать оформление и какие этапы предстоит пройти.</p></article><article class="audience-case"><div class="audience-step">Свой алгоритм</div><h3>Не платить посреднику <span>за каждый участок</span></h3><p>Сопровождение одного участка стоит от 100 000 рублей. Вы освоите алгоритм, который сможете применять годами — для себя и близких, без повторной оплаты посреднику.</p></article><article class="audience-case"><div class="audience-step">Разумная стоимость</div><h3>Не переплачивать <span>за обучение</span></h3><p>Получить системные знания без курса стоимостью в сотни тысяч рублей и использовать их не для одного, а для следующих участков.</p></article><article class="audience-case"><div class="audience-step">Следующий шаг</div><h3>Продолжить <span>после отказа</span></h3><p>Разобраться в причине, понять требования и определить, каким должен быть следующий шаг.</p></article></div></div></section>
 
-    <section class="about-section" id="about"><div class="wrap about-new-grid reveal"><div class="about-visual" aria-hidden="true"><span class="about-logo"></span></div><div class="about-content"><div class="about-number" aria-hidden="true">03</div><div class="about-kicker">О проекте</div><h2 class="about-heading">Земельный <span>старт</span></h2><div class="about-text"><p><strong>«Земельный старт»</strong> — авторский проект о том, как самостоятельно получить землю от государства, не обладая специальными юридическими знаниями.</p><p>Проект создан для людей, которые хотят самостоятельно пройти путь от поиска участка до оформления земли под строительство жилого дома, разобраться в процедуре получения участков и не зависеть от посредников и платных сопровождений.</p></div><div class="about-marker" aria-hidden="true"><span>Понятно</span><span>Пошагово</span><span>Самостоятельно</span></div></div></div></section><div class="marquee"><div class="marquee-track"><span>Поиск участка</span><span>Проверка ограничений</span><span>Земельные торги</span><span>Подготовка документов</span><span>Поиск участка</span><span>Проверка ограничений</span><span>Земельные торги</span><span>Подготовка документов</span></div></div>
+    <section class="project-section" id="about">
+  <div class="wrap project-grid reveal">
+    <div class="project-logo-frame" aria-hidden="true"><img src="assets/logo-zemelny-start.svg" alt=""></div>
+    <div class="project-copy">
+      <span class="project-number" aria-hidden="true">03</span>
+      <div class="project-kicker">О проекте</div>
+      <h2>Земельный <span>старт</span></h2>
+      <p><strong>«Земельный старт»</strong> — авторский проект о том, как самостоятельно получить землю от государства, не обладая специальными юридическими знаниями.</p>
+      <p>Проект создан для людей, которые хотят самостоятельно пройти путь от поиска участка до оформления земли под строительство жилого дома, разобраться в процедуре получения участков и не зависеть от посредников и платных сопровождений.</p>
+      <div class="project-end" aria-hidden="true"><span>Понятно</span><span>Пошагово</span><span>Самостоятельно</span></div>
+    </div>
+  </div>
+</section><div class="marquee"><div class="marquee-track"><span>Поиск участка</span><span>Проверка ограничений</span><span>Земельные торги</span><span>Подготовка документов</span><span>Поиск участка</span><span>Проверка ограничений</span><span>Земельные торги</span><span>Подготовка документов</span></div></div>
 
-    <section class="outcomes results-v3" id="results"><div class="wrap results-v3-inner reveal"><div class="results-v3-head"><div><div class="results-v3-kicker">Результат обучения</div><h2 class="results-v3-title">После обучения<span>вы сможете</span></h2></div><p class="results-v3-lead">Не просто узнаете отдельные правила, а получите систему, по которой сможете самостоятельно двигаться от поиска земли до оформления участка.</p></div><div class="results-v3-list"><article class="result-v3"><span class="result-v3-no" aria-hidden="true">+</span><h3>Экономить на услугах посредников и юристов</h3><p>Получите пошаговую систему действий и шаблоны документов, чтобы самостоятельно пройти процедуру оформления участка.</p></article><article class="result-v3"><span class="result-v3-no" aria-hidden="true">+</span><h3>Найти участок в разы дешевле рыночной стоимости</h3><p>Научитесь искать свободные земельные участки под ИЖС и анализировать территорию перед подачей заявления.</p></article><article class="result-v3"><span class="result-v3-no" aria-hidden="true">+</span><h3>Самостоятельно участвовать в земельных торгах</h3><p>Поймете, как проходят торги, какие участки стоит рассматривать и как избежать распространенных ошибок.</p></article></div><div class="value-compare value-editorial" aria-label="Стоимость сопровождения и ценность обучения"><div class="value-price"><span class="value-label">Сопровождение одного участка</span><strong>100 000 ₽+</strong><p>может стоить работа посредника</p></div><div class="value-message"><span class="value-label">Ценность обучения</span><h3>Не решение на один раз<em>Система, которая остается с вами</em></h3><p>Освоите порядок действий и сможете использовать его для следующих участков без повторной оплаты посреднику.</p></div></div><div class="results-action"><div class="results-action-copy">Начните с бесплатного первого урока</div><a class="results-lesson-btn js-open-lesson" href="#lesson"><span>Получить бесплатный урок</span><i aria-hidden="true"></i></a></div></div></section>
+    <section class="outcomes results-v3" id="results"><div class="wrap results-v3-inner reveal"><div class="results-v3-head"><div><div class="results-v3-kicker">Результат обучения</div><h2 class="results-v3-title">После обучения<span>вы сможете</span></h2></div><p class="results-v3-lead">Не просто узнаете отдельные правила, а получите систему, по которой сможете самостоятельно двигаться от поиска земли до оформления участка.</p></div><div class="results-v3-list"><article class="result-v3"><span class="result-v3-no" aria-hidden="true">+</span><h3>Экономить на услугах посредников и юристов</h3><p>Получите пошаговую систему действий и шаблоны документов, чтобы самостоятельно пройти процедуру оформления участка.</p></article><article class="result-v3"><span class="result-v3-no" aria-hidden="true">+</span><h3>Найти участок в разы дешевле рыночной стоимости</h3><p>Научитесь искать свободные земельные участки под ИЖС и анализировать территорию перед подачей заявления.</p></article><article class="result-v3"><span class="result-v3-no" aria-hidden="true">+</span><h3>Самостоятельно участвовать в земельных торгах</h3><p>Поймете, как проходят торги, какие участки стоит рассматривать и как избежать распространенных ошибок.</p></article></div><div class="value-compare value-editorial" aria-label="Стоимость сопровождения и ценность обучения"><div class="value-price"><span class="value-label">Сопровождение одного участка</span><strong>100 000 ₽+</strong><p>может стоить работа посредника</p></div><div class="value-message"><span class="value-label">Ценность обучения</span><h3>Не решение на один раз<em>Система, которая остается с вами</em></h3><p>Освоите порядок действий и сможете использовать его для следующих участков без повторной оплаты посреднику.</p></div></div><div class="results-action"><div class="results-action-copy">Начните с бесплатного первого урока</div><a class="results-lesson-btn js-open-lesson" href="#lesson"><span>Получить бесплатный урок</span><svg class="cta-arrow" aria-hidden="true" viewBox="0 0 26 26"><path d="M4 22 22 4M9 4h13v13"/></svg></a></div></div></section>
 
-    <section class="method method-v8 reveal" id="method"><div class="method-v8-number" aria-hidden="true">05</div><div class="wrap method-v8-shell"><div class="method-v8-head"><div><div class="method-v8-kicker">Как устроено обучение</div><h2 class="method-v8-title">Система<span>в трех шагах</span></h2></div><p class="method-v8-intro">Не набор разрозненных уроков, а один понятный маршрут: от правовой основы до самостоятельной работы с участком и документами.</p></div><div class="method-v8-route"><article class="method-v8-step"><span class="method-v8-word">Понять</span><div><strong>Правовая основа</strong><p>Разберетесь в нормах, которые нужны для получения земли у государства.</p></div></article><article class="method-v8-step"><span class="method-v8-word">Собрать</span><div><strong>Маршрут действий</strong><p>Соберете последовательность от поиска территории до подачи документов.</p></div></article><article class="method-v8-step"><span class="method-v8-word">Сделать</span><div><strong>Практика на своем участке</strong><p>Примените алгоритм, шаблоны и примеры к своему участку.</p></div></article></div></div></section>
+    <section class="study-section" id="method">
+  <div class="wrap study-shell reveal">
+    <div class="study-heading">
+      <div class="study-eyebrow"><span>05 / Формат обучения</span><span>Все в одном месте</span></div>
+      <h2>Смотрите уроки.<br><em>Применяйте на практике.</em></h2>
+      <p>Курс проходит на отдельной учебной платформе. Смотрите видеоуроки в удобное время, возвращайтесь к инструкциям и работайте с документами по мере прохождения каждого этапа.</p>
+    </div>
+    <div class="study-features">
+      <article><span>01</span><div><h3>Видеоуроки по шагам</h3><p>От поиска территории и проверки документов до оформления участка под ИЖС.</p></div></article>
+      <article><span>02</span><div><h3>Шаблоны под рукой</h3><p>Образцы заявлений и материалы курса доступны рядом с нужными уроками.</p></div></article>
+      <article><span>03</span><div><h3>Доступ на годы</h3><p>Материалы остаются у вас: возвращайтесь к ним, когда понадобится следующий участок.</p></div></article>
+    </div>
+    <div class="study-platform" aria-label="Учебная платформа: видео, практика и документы">
+      <span>Земельный старт / Учебная платформа</span>
+      <strong>Урок → практика → следующий шаг</strong>
+      <div class="study-progress" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <small>Учитесь в своем темпе</small>
+    </div>
+  </div>
+</section>
 
-    <section class="author author-v6 reveal" id="author"><div class="author-v6-number" aria-hidden="true">06</div><div class="wrap author-v6-shell"><div class="author-v6-kicker">Автор проекта</div><h2 class="author-v6-title">Сложная процедура<span>становится понятной</span></h2><div class="author-v6-layout"><div class="author-v6-copy"><div class="author-v6-role">Юрист в сфере земельного права</div><h3 class="author-v6-name">Екатерина<span>Шайхудинова</span></h3><div class="author-v6-facts"><p class="author-v6-fact"><strong>Образование</strong>Заканчиваю магистратуру по направлению «Юриспруденция» и ежедневно работаю с земельными вопросами.</p><p class="author-v6-fact"><strong>Практика</strong>В своей практике работаю с предоставлением земельных участков, анализом градостроительной документации, оформлением земли и судебными спорами, связанными с отказами органов власти и применением земельного законодательства.</p></div><div class="author-v6-mission"><strong>Моя задача</strong><p>Моя задача — не грузить вас теорией, а дать четкий и понятный алгоритм, который вы сможете применить сразу. На обучении я объясняю все простыми словами и помогаю шаг за шагом применить полученные навыки.</p></div></div><div class="author-v6-photo"><img src="assets/ekaterina-waist-white.png" alt="Екатерина Шайхудинова — юрист в сфере земельного права"><div class="author-v6-caption">Практика · опыт · результат</div></div></div></div></section>
+    <section class="profile-section" id="author">
+  <div class="wrap profile-shell reveal">
+    <div class="profile-top"><span>06 / Автор проекта</span><span>Земельное право · практика</span></div>
+    <h2 class="profile-title">Разобраться в земле<br><span>можно без посредника</span></h2>
+    <div class="profile-grid">
+      <figure class="profile-portrait"><div class="profile-photo-backdrop"></div><img src="assets/ekaterina-waist-white.png" alt="Екатерина Шайхудинова — автор проекта" loading="lazy"><figcaption>Екатерина Шайхудинова</figcaption></figure>
+      <div class="profile-copy">
+        <p class="profile-role">Юрист в сфере земельного права</p>
+        <h3>Екатерина<br>Шайхудинова</h3>
+        <p class="profile-main">Работаю с предоставлением земельных участков, градостроительной документацией, оформлением земли и спорами об отказах органов власти.</p>
+        <div class="profile-notes">
+          <p><span>Образование</span>Заканчиваю магистратуру по направлению «Юриспруденция».</p>
+          <p><span>Подход</span>Объясняю процедуру простым языком и показываю, как применять знания на практике — от выбора территории до подачи документов.</p>
+        </div>
+      </div>
+    </div>
+    <p class="profile-quote">«Моя задача — дать вам понятную последовательность действий, к которой можно возвращаться при работе со следующими участками».</p>
+  </div>
+</section>
 
-    <section class="course-program program-v7" id="program"><div class="program-v7-number" aria-hidden="true">07</div><div class="wrap program-v7-shell reveal"><div class="program-v7-intro"><div class="program-v7-kicker">От поиска к оформлению</div><h2 class="program-v7-title">Программа<span>курса</span></h2><p class="program-v7-lead">В программе есть все, что нужно для самостоятельного получения земельного участка и его оформления под строительство жилого дома.</p><div class="program-v7-facts"><div class="program-v7-fact">70+ уроков<span>последовательная система</span></div><div class="program-v7-fact">Практические видео<span>и пошаговые инструкции</span></div><div class="program-v7-fact">Шаблоны документов<span>для разных этапов</span></div><div class="program-v7-fact">Поддержка<span>ответы в процессе обучения</span></div></div></div><div class="program-v7-list"><details class="program-v7-item" open><summary><span class="program-v7-index">01</span><div class="program-v7-summary"><h3>Законодательство и порядок предоставления земельных участков</h3><p>Подробно разберете процедуру получения земельного участка под ИЖС и законодательство, регулирующее каждый этап оформления.</p></div><span class="program-v7-toggle" aria-hidden="true"></span></summary><div class="program-v7-body"><div><h4>В модуле</h4><ul class="program-v7-topics"><li>основные положения Земельного кодекса РФ, регулирующие образование и предоставление государственных и муниципальных земельных участков</li><li>государственная и муниципальная собственность на землю: разграниченная и неразграниченная собственность</li><li>полномочия органов государственной власти и местного самоуправления: как определить, кто распоряжается выбранной территорией и куда подавать заявление</li><li>способы получения земельного участка под ИЖС: предоставление с проведением торгов и без проведения торгов</li><li>предварительное согласование предоставления земельного участка: место процедуры в общем порядке оформления земли</li><li>предоставление земельного участка в аренду и приобретение в собственность: порядок оформления и основные различия</li><li>сроки рассмотрения заявлений и принятия решений на разных этапах процедуры</li><li>арендная плата за государственные и муниципальные земельные участки: порядок определения и особенности расчета</li><li>выкупная стоимость земельного участка: как определяется цена приобретения земли у государства или муниципального образования</li><li>региональные ставки выкупа: почему стоимость приобретения участка отличается в зависимости от региона</li><li>кадастровая стоимость и ее значение при расчете арендной платы и цены приобретения участка</li></ul></div><aside class="program-v7-aside"><div class="program-v7-note"><h4>Результат модуля</h4><p>Вы будете понимать всю процедуру получения земельного участка под ИЖС: от выбора способа предоставления и определения уполномоченного органа до заключения договора, а также законодательство, сроки и стоимость оформления на каждом этапе.</p></div></aside></div></details><details class="program-v7-item"><summary><span class="program-v7-index">02</span><div class="program-v7-summary"><h3>Градостроительный анализ территории</h3><p>Научитесь разбираться в градостроительной документации и использовать ее для оценки территории до начала оформления земельного участка.</p></div><span class="program-v7-toggle" aria-hidden="true"></span></summary><div class="program-v7-body"><div><h4>В модуле</h4><ul class="program-v7-topics"><li>генеральный план: структура документа, функциональные зоны и работа с картографическими материалами</li><li>Правила землепользования и застройки (ПЗЗ): структура документа и работа с картой градостроительного зонирования</li><li>территориальные зоны и градостроительные регламенты: как определить, что разрешено на выбранной территории</li><li>виды разрешенного использования (ВРИ) и возможность образования участка под ИЖС</li><li>минимальные и максимальные размеры земельных участков, установленные градостроительным регламентом</li><li>взаимосвязь генерального плана и ПЗЗ: какие сведения необходимо сопоставлять при анализе территории</li><li>проекты планировки и проекты межевания территории: когда их наличие необходимо учитывать при образовании земельного участка</li><li>зоны с особыми условиями использования территорий (ЗОУИТ): виды зон и ограничения, которые они устанавливают</li><li>охранные, санитарно-защитные, водоохранные и иные зоны, имеющие значение при выборе территории под ИЖС</li><li>источники градостроительной информации: где находить актуальные документы и как проверять сведения по выбранной территории</li></ul></div><aside class="program-v7-aside"><div class="program-v7-note"><h4>Результат модуля</h4><p>Вы сможете самостоятельно провести градостроительный анализ выбранной территории: найти необходимые документы, определить функциональную и территориальную зоны, проверить ВРИ, параметры участка и действующие ограничения и понять, подходит ли территория для дальнейшего оформления под ИЖС.</p></div></aside></div></details><details class="program-v7-item"><summary><span class="program-v7-index">03</span><div class="program-v7-summary"><h3>Поиск и анализ земельного участка</h3><p>Практический модуль, в котором научитесь работать с НСПД, искать земельные участки и проводить первичный анализ выбранной территории.</p></div><span class="program-v7-toggle" aria-hidden="true"></span></summary><div class="program-v7-body"><div><h4>В модуле</h4><ul class="program-v7-topics"><li>Национальная система пространственных данных (НСПД): основные инструменты и возможности сервиса для поиска земельных участков</li><li>пошаговый алгоритм поиска свободной территории под ИЖС</li><li>работа с Публичной кадастровой картой и тематическими слоями НСПД</li><li>кадастровые кварталы, сформированные земельные участки и объекты недвижимости: какие сведения необходимо учитывать при поиске</li><li>поиск свободной территории с учетом существующих земельных участков и застройки</li><li>сопоставление данных НСПД с генеральным планом, ПЗЗ и градостроительными картами</li><li>определение предполагаемых границ, площади и конфигурации будущего земельного участка</li><li>анализ выбранной территории перед переходом к процедуре образования земельного участка</li><li>земельные участки, находящиеся в собственности публично-правовых образований (СППО): как выявить такой участок и чем порядок дальнейшей работы с ним отличается от образования участка на свободной территории</li></ul></div><aside class="program-v7-aside"><div class="program-v7-note"><h4>Практика</h4><p>Пошагово проведете поиск и анализ территории под ИЖС на НСПД и примените полученные в предыдущем модуле знания по работе с градостроительной документацией.</p></div><div class="program-v7-note"><h4>Результат модуля</h4><p>Сможете самостоятельно найти и предварительно проанализировать территорию под ИЖС, определить дальнейший порядок работы с ней и подготовиться к следующему этапу — формированию земельного участка.</p></div></aside></div></details><details class="program-v7-item"><summary><span class="program-v7-index">04</span><div class="program-v7-summary"><h3>Подготовка схемы расположения земельного участка</h3><p>Практический модуль по подготовке схемы расположения земельного участка и комплекта документов для обращения в уполномоченный орган.</p></div><span class="program-v7-toggle" aria-hidden="true"></span></summary><div class="program-v7-body"><div><h4>В модуле</h4><ul class="program-v7-topics"><li>кадастровый план территории (КПТ): получение и подготовка исходных данных для работы</li><li>работа в АРГО Гео: от загрузки КПТ до формирования готовой схемы расположения земельного участка</li><li>формирование границ будущего земельного участка: площадь, конфигурация и расположение</li><li>требования к схеме расположения земельного участка на кадастровом плане территории (СРЗУ)</li><li>проверка подготовленной схемы: границы, координаты, площадь и необходимые сведения</li><li>подготовка заявления о предварительном согласовании предоставления земельного участка</li><li>комплект документов, прилагаемых к заявлению</li><li>требования к оформлению документов и подготовка их к подаче в уполномоченный орган</li></ul></div><aside class="program-v7-aside"><div class="program-v7-note"><h4>Практика</h4><p>Самостоятельно подготовите СРЗУ в программе АРГО Гео и сформируете полный комплект документов для подачи заявления о предварительном согласовании предоставления земельного участка.</p></div><div class="program-v7-note"><h4>Результат модуля</h4><p>Готовая схема расположения земельного участка и комплект документов для начала процедуры предварительного согласования.</p></div></aside></div></details><details class="program-v7-item"><summary><span class="program-v7-index">05</span><div class="program-v7-summary"><h3>Земельные торги</h3><p>Подробно разберете порядок предоставления земельных участков под ИЖС посредством торгов — от формирования и публикации извещения до участия в аукционе и заключения договора.</p></div><span class="program-v7-toggle" aria-hidden="true"></span></summary><div class="program-v7-body"><div><h4>В модуле</h4><ul class="program-v7-topics"><li>порядок предоставления земельных участков посредством торгов и основные этапы процедуры</li><li>случаи, когда предоставление выбранного земельного участка переходит в процедуру торгов</li><li>ГИС Торги: поиск земельных участков и работа с опубликованными извещениями</li><li>анализ извещения и аукционной документации: характеристики участка, начальная цена, размер задатка, шаг аукциона и существенные условия договора</li><li>проверка земельного участка перед участием в торгах</li><li>электронная подпись и регистрация на электронной торговой площадке</li><li>подготовка и подача заявки на участие в аукционе</li><li>внесение задатка, сроки и порядок его возврата</li><li>основания для допуска и отказа в допуске к участию в торгах</li><li>порядок проведения электронного аукциона</li><li>определение предельной стоимости участка и стратегия участия в торгах</li><li>действия после завершения аукциона</li><li>заключение договора аренды или купли-продажи земельного участка по результатам торгов</li></ul></div><aside class="program-v7-aside"><div class="program-v7-note"><h4>Практика</h4><p>Разберете реальное извещение о проведении аукциона, документацию и весь порядок участия — от поиска участка на ГИС Торги до заключения договора.</p></div><div class="program-v7-note"><h4>Результат модуля</h4><p>Вы будете понимать всю процедуру земельных торгов, сможете самостоятельно анализировать опубликованные участки, подготовить заявку, принять участие в электронном аукционе и пройти процедуру до заключения договора.</p></div></aside></div></details></div></div></section>
+    <section class="syllabus-section" id="program">
+  <div class="wrap syllabus-shell reveal">
+    <div class="syllabus-intro">
+      <div class="syllabus-eyebrow">07 / Программа курса</div>
+      <h2>Весь путь<br><span>к участку.</span></h2>
+      <p>Пять первых модулей — от законодательной основы и анализа территории до подготовки схемы и участия в земельных торгах. Каждый этап можно изучить отдельно и вернуться к нему на практике.</p>
+      <div class="syllabus-total"><strong>70+</strong><span>видеоуроков, шаблоны документов и практические инструкции</span></div>
+    </div>
+    <div class="syllabus-list" aria-label="Программа курса">
+      <details class="syllabus-module" open>
+      <summary><span class="syllabus-index">01</span><span class="syllabus-heading">Законодательство и порядок предоставления земельных участков</span><span class="syllabus-toggle" aria-hidden="true"></span></summary>
+      <div class="syllabus-content"><p class="syllabus-description">Подробно разберете процедуру получения земельного участка под ИЖС и законодательство, регулирующее каждый этап оформления.</p><div class="syllabus-columns"><div><h4>В модуле</h4><ul><li>основные положения Земельного кодекса РФ, регулирующие образование и предоставление государственных и муниципальных земельных участков</li><li>государственная и муниципальная собственность на землю: разграниченная и неразграниченная собственность</li><li>полномочия органов государственной власти и местного самоуправления: как определить, кто распоряжается выбранной территорией и куда подавать заявление</li><li>способы получения земельного участка под ИЖС: предоставление с проведением торгов и без проведения торгов</li><li>предварительное согласование предоставления земельного участка: место процедуры в общем порядке оформления земли</li><li>предоставление земельного участка в аренду и приобретение в собственность: порядок оформления и основные различия</li><li>сроки рассмотрения заявлений и принятия решений на разных этапах процедуры</li><li>арендная плата за государственные и муниципальные земельные участки: порядок определения и особенности расчета</li><li>выкупная стоимость земельного участка: как определяется цена приобретения земли у государства или муниципального образования</li><li>региональные ставки выкупа: почему стоимость приобретения участка отличается в зависимости от региона</li><li>кадастровая стоимость и ее значение при расчете арендной платы и цены приобретения участка</li></ul></div><div class="syllabus-outcome"><div class="syllabus-note"><h4>Результат модуля</h4><p>Вы будете понимать всю процедуру получения земельного участка под ИЖС: от выбора способа предоставления и определения уполномоченного органа до заключения договора, а также законодательство, сроки и стоимость оформления на каждом этапе.</p></div></div></div></div>
+    </details><details class="syllabus-module" >
+      <summary><span class="syllabus-index">02</span><span class="syllabus-heading">Градостроительный анализ территории</span><span class="syllabus-toggle" aria-hidden="true"></span></summary>
+      <div class="syllabus-content"><p class="syllabus-description">Научитесь разбираться в градостроительной документации и использовать ее для оценки территории до начала оформления земельного участка.</p><div class="syllabus-columns"><div><h4>В модуле</h4><ul><li>генеральный план: структура документа, функциональные зоны и работа с картографическими материалами</li><li>Правила землепользования и застройки (ПЗЗ): структура документа и работа с картой градостроительного зонирования</li><li>территориальные зоны и градостроительные регламенты: как определить, что разрешено на выбранной территории</li><li>виды разрешенного использования (ВРИ) и возможность образования участка под ИЖС</li><li>минимальные и максимальные размеры земельных участков, установленные градостроительным регламентом</li><li>взаимосвязь генерального плана и ПЗЗ: какие сведения необходимо сопоставлять при анализе территории</li><li>проекты планировки и проекты межевания территории: когда их наличие необходимо учитывать при образовании земельного участка</li><li>зоны с особыми условиями использования территорий (ЗОУИТ): виды зон и ограничения, которые они устанавливают</li><li>охранные, санитарно-защитные, водоохранные и иные зоны, имеющие значение при выборе территории под ИЖС</li><li>источники градостроительной информации: где находить актуальные документы и как проверять сведения по выбранной территории</li></ul></div><div class="syllabus-outcome"><div class="syllabus-note"><h4>Результат модуля</h4><p>Вы сможете самостоятельно провести градостроительный анализ выбранной территории: найти необходимые документы, определить функциональную и территориальную зоны, проверить ВРИ, параметры участка и действующие ограничения и понять, подходит ли территория для дальнейшего оформления под ИЖС.</p></div></div></div></div>
+    </details><details class="syllabus-module" >
+      <summary><span class="syllabus-index">03</span><span class="syllabus-heading">Поиск и анализ земельного участка</span><span class="syllabus-toggle" aria-hidden="true"></span></summary>
+      <div class="syllabus-content"><p class="syllabus-description">Практический модуль, в котором научитесь работать с НСПД, искать земельные участки и проводить первичный анализ выбранной территории.</p><div class="syllabus-columns"><div><h4>В модуле</h4><ul><li>Национальная система пространственных данных (НСПД): основные инструменты и возможности сервиса для поиска земельных участков</li><li>пошаговый алгоритм поиска свободной территории под ИЖС</li><li>работа с Публичной кадастровой картой и тематическими слоями НСПД</li><li>кадастровые кварталы, сформированные земельные участки и объекты недвижимости: какие сведения необходимо учитывать при поиске</li><li>поиск свободной территории с учетом существующих земельных участков и застройки</li><li>сопоставление данных НСПД с генеральным планом, ПЗЗ и градостроительными картами</li><li>определение предполагаемых границ, площади и конфигурации будущего земельного участка</li><li>анализ выбранной территории перед переходом к процедуре образования земельного участка</li><li>земельные участки, находящиеся в собственности публично-правовых образований (СППО): как выявить такой участок и чем порядок дальнейшей работы с ним отличается от образования участка на свободной территории</li></ul></div><div class="syllabus-outcome"><div class="syllabus-note"><h4>Практика</h4><p>Пошагово проведете поиск и анализ территории под ИЖС на НСПД и примените полученные в предыдущем модуле знания по работе с градостроительной документацией.</p></div><div class="syllabus-note"><h4>Результат модуля</h4><p>Сможете самостоятельно найти и предварительно проанализировать территорию под ИЖС, определить дальнейший порядок работы с ней и подготовиться к следующему этапу — формированию земельного участка.</p></div></div></div></div>
+    </details><details class="syllabus-module" >
+      <summary><span class="syllabus-index">04</span><span class="syllabus-heading">Подготовка схемы расположения земельного участка</span><span class="syllabus-toggle" aria-hidden="true"></span></summary>
+      <div class="syllabus-content"><p class="syllabus-description">Практический модуль по подготовке схемы расположения земельного участка и комплекта документов для обращения в уполномоченный орган.</p><div class="syllabus-columns"><div><h4>В модуле</h4><ul><li>кадастровый план территории (КПТ): получение и подготовка исходных данных для работы</li><li>работа в АРГО Гео: от загрузки КПТ до формирования готовой схемы расположения земельного участка</li><li>формирование границ будущего земельного участка: площадь, конфигурация и расположение</li><li>требования к схеме расположения земельного участка на кадастровом плане территории (СРЗУ)</li><li>проверка подготовленной схемы: границы, координаты, площадь и необходимые сведения</li><li>подготовка заявления о предварительном согласовании предоставления земельного участка</li><li>комплект документов, прилагаемых к заявлению</li><li>требования к оформлению документов и подготовка их к подаче в уполномоченный орган</li></ul></div><div class="syllabus-outcome"><div class="syllabus-note"><h4>Практика</h4><p>Самостоятельно подготовите СРЗУ в программе АРГО Гео и сформируете полный комплект документов для подачи заявления о предварительном согласовании предоставления земельного участка.</p></div><div class="syllabus-note"><h4>Результат модуля</h4><p>Готовая схема расположения земельного участка и комплект документов для начала процедуры предварительного согласования.</p></div></div></div></div>
+    </details><details class="syllabus-module" >
+      <summary><span class="syllabus-index">05</span><span class="syllabus-heading">Земельные торги</span><span class="syllabus-toggle" aria-hidden="true"></span></summary>
+      <div class="syllabus-content"><p class="syllabus-description">Подробно разберете порядок предоставления земельных участков под ИЖС посредством торгов — от формирования и публикации извещения до участия в аукционе и заключения договора.</p><div class="syllabus-columns"><div><h4>В модуле</h4><ul><li>порядок предоставления земельных участков посредством торгов и основные этапы процедуры</li><li>случаи, когда предоставление выбранного земельного участка переходит в процедуру торгов</li><li>ГИС Торги: поиск земельных участков и работа с опубликованными извещениями</li><li>анализ извещения и аукционной документации: характеристики участка, начальная цена, размер задатка, шаг аукциона и существенные условия договора</li><li>проверка земельного участка перед участием в торгах</li><li>электронная подпись и регистрация на электронной торговой площадке</li><li>подготовка и подача заявки на участие в аукционе</li><li>внесение задатка, сроки и порядок его возврата</li><li>основания для допуска и отказа в допуске к участию в торгах</li><li>порядок проведения электронного аукциона</li><li>определение предельной стоимости участка и стратегия участия в торгах</li><li>действия после завершения аукциона</li><li>заключение договора аренды или купли-продажи земельного участка по результатам торгов</li></ul></div><div class="syllabus-outcome"><div class="syllabus-note"><h4>Практика</h4><p>Разберете реальное извещение о проведении аукциона, документацию и весь порядок участия — от поиска участка на ГИС Торги до заключения договора.</p></div><div class="syllabus-note"><h4>Результат модуля</h4><p>Вы будете понимать всю процедуру земельных торгов, сможете самостоятельно анализировать опубликованные участки, подготовить заявку, принять участие в электронном аукционе и пройти процедуру до заключения договора.</p></div></div></div></div>
+    </details>
+    </div>
+  </div>
+</section>
 
     <section class="tariffs tariffs-v2" id="tariffs"><div class="tariffs-v2-number" aria-hidden="true">08</div><div class="wrap tariffs-v2-shell reveal"><div class="tariffs-v2-head"><div><div class="tariffs-v2-kicker">Форматы участия</div><h2 class="tariffs-v2-title">Выберите<span>поддержку</span></h2></div><p class="tariffs-v2-lead">Во всех тарифах — полная программа курса, практические материалы и последовательный путь от изучения процедуры до самостоятельной работы с земельным участком.</p></div><div class="tariff-grid"><article class="tariff-card"><div class="tariff-label">Самостоятельный</div><h3>Без обратной связи</h3><div class="tariff-price">7 900 ₽</div><ul class="tariff-features"><li>доступ ко всем модулям и 70+ урокам</li><li>практические видео и пошаговые инструкции</li><li>шаблоны заявлений и документов</li><li>самостоятельное прохождение в удобном темпе</li></ul><a class="tariff-action js-open-lesson" href="#lesson"><span>Начать с первого урока</span><svg class="cta-arrow" aria-hidden="true" viewBox="0 0 26 26"><path d="M4 22 22 4M9 4h13v13"/></svg></a></article><article class="tariff-card"><div class="tariff-label">С сопровождением</div><h3>Личная обратная связь</h3><div class="tariff-price">14 900 ₽</div><ul class="tariff-features"><li>все материалы тарифа «Самостоятельный»</li><li>личная обратная связь в мессенджере</li><li>ответы на вопросы по материалам курса</li><li>поддержка в течение трех месяцев</li></ul><a class="tariff-action js-open-lesson" href="#lesson"><span>Начать с первого урока</span><svg class="cta-arrow" aria-hidden="true" viewBox="0 0 26 26"><path d="M4 22 22 4M9 4h13v13"/></svg></a></article><article class="tariff-card"><div class="tariff-label">Расширенный</div><h3>Юридическая помощь</h3><div class="tariff-price"><small>Стоимость</small><br>индивидуально</div><ul class="tariff-features"><li>все материалы тарифа «С сопровождением»</li><li>правовой анализ одного отказа органа власти</li><li>подготовка правовой позиции и плана дальнейших действий</li><li>подготовка одного искового или административного искового заявления</li><li>подготовка процессуальных документов по одному делу: ходатайств, письменных пояснений, возражений и дополнений</li></ul><p class="tariff-scope">Документальное сопровождение без представительства в судебных заседаниях.</p><a class="tariff-action js-open-lesson" href="#lesson"><span>Обсудить формат</span><svg class="cta-arrow" aria-hidden="true" viewBox="0 0 26 26"><path d="M4 22 22 4M9 4h13v13"/></svg></a></article></div></div></section>
 
-    <section class="cta-finale" id="lesson"><div class="cta-finale-number" aria-hidden="true">09</div><div class="wrap cta-finale-inner reveal"><div class="cta-finale-kicker">Первый шаг — бесплатно</div><h2>Начните с урока.<br><span>Продолжите сами.</span></h2><div class="cta-finale-bottom"><p>Разберитесь, как устроен путь от поиска участка до оформления земли. Первый урок поможет увидеть последовательность действий и выбрать свой следующий шаг.</p><a class="primary finale-action js-open-lesson" href="#lesson"><span>Получить бесплатный урок</span><svg class="cta-arrow" aria-hidden="true" viewBox="0 0 26 26"><path d="M4 22 22 4M9 4h13v13"/></svg></a></div><div class="cta-finale-line" aria-hidden="true"><span>Поиск участка</span><span>Проверка территории</span><span>Оформление земли</span></div></div></section>
+    <section class="ending-section" id="lesson">
+  <div class="wrap ending-shell reveal">
+    <div class="ending-eyebrow">09 / Начните бесплатно</div>
+    <div class="ending-main"><h2>Свой участок<br><span>начинается с первого шага</span></h2><p>Посмотрите первый урок и разберитесь, из каких этапов состоит путь от поиска земли до оформления участка под строительство дома.</p></div>
+    <div class="ending-bottom"><span>Первый урок · бесплатно</span><a class="ending-button js-open-lesson" href="#lesson"><span>Получить бесплатный урок</span><svg class="cta-arrow" aria-hidden="true" viewBox="0 0 26 26"><path d="M4 22 22 4M9 4h13v13"/></svg></a></div>
+  </div>
+</section>
   </main>
 
   <dialog class="lesson-modal" id="lessonDialog" aria-labelledby="lessonDialogTitle"><div class="modal-card modal-card-simple"><button class="modal-close" type="button" aria-label="Закрыть окно">×</button><div class="modal-body"><div class="modal-simple-kicker">Бесплатный первый урок</div><h2 id="lessonDialogTitle">Начните с главного</h2><p>Оставьте контакты — мы отправим вам доступ к первому уроку.</p><form class="modal-form" id="lessonModalForm"><label class="modal-field"><span>Имя</span><input required type="text" name="name" autocomplete="name" placeholder="Введите имя"></label><label class="modal-field"><span>Телефон</span><input required type="tel" name="phone" autocomplete="tel" placeholder="+7 999 000-00-00"></label><label class="modal-field"><span>Электронная почта</span><input required type="email" name="email" autocomplete="email" placeholder="mail@example.ru"></label><button class="modal-submit" type="submit"><span>Получить бесплатный урок</span><svg class="cta-arrow" aria-hidden="true" viewBox="0 0 26 26"><path d="M4 22 22 4M9 4h13v13"/></svg></button><label class="modal-consent"><input required type="checkbox" name="consent"> <span>Даю согласие на обработку персональных данных</span></label><div class="modal-success">Спасибо! Данные приняты.</div></form></div></div></dialog>
 
-  <footer><div class="wrap footer-grid"><a class="brand" href="#top"><img class="brand-logo" src="assets/logo-zemelny-start.svg" alt="Логотип проекта «Земельный старт»"></a><div class="footer-small">Образовательный проект<br>Екатерины Шайхудиновой</div></div></footer>
+  <footer class="site-footer"><div class="wrap footer-shell">
+  <div class="footer-identity"><strong>ЗЕМЕЛЬНЫЙ<br>СТАРТ</strong><span>Образовательный проект<br>Екатерины Шайхудиновой</span></div>
+  <nav class="footer-nav" aria-label="Навигация"><b>Разделы</b><a href="#about">О проекте</a><a href="#program">Программа</a><a href="#author">Автор</a><a href="#tariffs">Тарифы</a></nav>
+  <div class="footer-contact"><b>Контакты</b><a class="js-open-lesson" href="#lesson">Написать через форму</a><p>Для вопросов о курсе и форматах обучения.</p></div>
+  <div class="footer-documents"><b>Документы и соцсети</b><span>Оферта и ссылки на соцсети появятся до начала продаж</span></div>
+  <div class="footer-end"><span>© Земельный старт</span><a href="#top">Наверх ↑</a></div>
+</div></footer>
   <script>
     const io=new IntersectionObserver((entries)=>entries.forEach(e=>e.isIntersecting&&e.target.classList.add('visible')),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     const lessonDialog=document.getElementById('lessonDialog'),lessonModalForm=document.getElementById('lessonModalForm');document.querySelectorAll('.js-open-lesson').forEach(button=>button.addEventListener('click',event=>{event.preventDefault();lessonDialog.showModal();document.body.style.overflow='hidden';setTimeout(()=>lessonModalForm.querySelector('input').focus(),50)}));lessonDialog.querySelector('.modal-close').addEventListener('click',()=>lessonDialog.close());lessonDialog.addEventListener('click',event=>{if(event.target===lessonDialog)lessonDialog.close()});lessonDialog.addEventListener('close',()=>{document.body.style.overflow=''});lessonModalForm.addEventListener('submit',event=>{event.preventDefault();lessonModalForm.classList.add('sent')});
     const mobileNav=document.getElementById('mobileNav'),mobileMenuToggle=document.getElementById('mobileMenuToggle'),mobileMenuClose=mobileNav.querySelector('.mobile-nav-close');const openMobileMenu=()=>{mobileNav.classList.add('open');mobileNav.setAttribute('aria-hidden','false');mobileMenuToggle.setAttribute('aria-expanded','true')};const closeMobileMenu=()=>{mobileNav.classList.remove('open');mobileNav.setAttribute('aria-hidden','true');mobileMenuToggle.setAttribute('aria-expanded','false')};mobileMenuToggle.addEventListener('click',()=>mobileNav.classList.contains('open')?closeMobileMenu():openMobileMenu());mobileMenuClose.addEventListener('click',closeMobileMenu);mobileNav.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMobileMenu));document.addEventListener('click',event=>{if(mobileNav.classList.contains('open')&&!mobileNav.contains(event.target)&&!mobileMenuToggle.contains(event.target))closeMobileMenu()});
-    const programModules=[...document.querySelectorAll('.program-v7-item')];programModules.forEach(module=>module.addEventListener('toggle',()=>{if(module.open)programModules.forEach(other=>{if(other!==module)other.open=false})}));
+    const programModules=[...document.querySelectorAll('.syllabus-module')];programModules.forEach(module=>module.addEventListener('toggle',()=>{if(module.open)programModules.forEach(other=>{if(other!==module)other.open=false})}));
   </script>
 </body>
 </html>
