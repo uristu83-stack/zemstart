@@ -1003,7 +1003,7 @@
     @media(prefers-reduced-motion:reduce){.author-v6-photo,.author-v6-fact{clip-path:none;opacity:1;transform:none;transition:none}}
 
     /* September refinement: the reference lime, complete logos, and two new compositions */
-    :root{--green:#A9D12B;--acid:#B0CF59;--ink:#20221D}
+    :root{--green:#78D539;--acid:#78D539;--ink:#2D2D2D;--cream:#E4E4E7;--pale:#F1F1F3;--line:#C8C8CD}
     header,.hero,.about-section,.method.method-v8,.course-program.program-v7,.cta-finale{background:var(--green)!important}
     .mobile-nav-cta{background:var(--green)}
 
@@ -1091,7 +1091,7 @@
       .program-v7-list{margin-top:48px}
     }
     @media(max-width:560px){
-      :root{--green:#A9D12B;--acid:#B0CF59}
+      :root{--green:#78D539;--acid:#78D539}
       header{height:98px}
       header .brand{gap:8px;min-width:0}
       header .brand-logo-crop{flex:0 0 78px;width:78px;height:78px;overflow:visible!important}
@@ -1107,6 +1107,141 @@
       .program-v7-fact,.program-v7-fact:nth-child(even){font-size:18px}
     }
     @media(prefers-reduced-motion:reduce){.author-v6-photo:before,.author-v6-photo img,.program-v7-facts{transition:none;transform:none;opacity:1}}
+
+    /* Conference reference: graphite, silver, vivid green; open editorial layouts. */
+    :root{--green:#78D539;--acid:#78D539;--ink:#2D2D2D;--cream:#E4E4E7;--pale:#F1F1F3;--line:#C8C8CD}
+    body{background:var(--cream)}
+    header,.hero,.about-section,.method.method-v8{background:var(--green)!important}
+    .audience,.outcomes.results-v3,.tariffs.tariffs-v2{background:var(--ink)}
+    .marquee{background:var(--cream)}
+    .mobile-nav-cta{background:var(--green)}
+    .about-heading span,.method-v8-title span{color:#fff}
+    .about-logo:before,.about-logo:after{opacity:1}
+    .primary,.nav-cta,.results-lesson-btn,.tariff-action,.modal-submit{background:var(--ink)}
+    .cta-arrow{flex:none}
+    .modal-card.modal-card-simple{background:var(--pale)}
+    .modal-simple-kicker{color:#367c15}
+
+    /* Author: an unframed portrait on a vivid green field, typeset like a speaker slide. */
+    .author.author-v6{padding:118px 0 120px;background:var(--ink);color:#fff}
+    .author-v6-number{top:.08em;right:-.04em;color:rgba(255,255,255,.045)}
+    .author-v6-kicker{font-size:12px;letter-spacing:.19em;color:var(--green)}
+    .author-v6-title{max-width:none;margin:24px 0 66px;font-size:clamp(46px,5.6vw,82px);line-height:.88}
+    .author-v6-title span{color:var(--green)}
+    .author-v6-layout{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);grid-template-areas:"photo copy";gap:clamp(48px,6vw,100px);align-items:stretch;min-height:0;border:0}
+    .author-v6-photo,.author-v6.visible .author-v6-photo{grid-area:photo;position:relative;min-height:690px;width:100%;max-width:none;margin:0;overflow:hidden;clip-path:none;border-radius:0;background:var(--green)}
+    .author-v6-photo:before,.author-v6.visible .author-v6-photo:before{inset:auto -10% 10% auto;width:60%;height:74%;aspect-ratio:auto;border-radius:0;background:repeating-linear-gradient(90deg,rgba(45,45,45,.11) 0 2px,transparent 2px 44px);opacity:1;transform:none}
+    .author-v6-photo:after{top:auto;left:0;right:0;bottom:0;width:100%;height:27%;border:0;border-radius:0;background:linear-gradient(transparent,rgba(45,45,45,.28))}
+    .author-v6-photo img{left:50%;bottom:0;width:118%;height:100%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 14px 24px rgba(28,35,25,.15));transform:translate(-50%,28px) scale(.97)}
+    .author-v6.visible .author-v6-photo img{transform:translate(-50%,0) scale(1)}
+    .author-v6-caption{left:28px;right:28px;bottom:24px;text-align:left;color:#fff;letter-spacing:.13em}
+    .author-v6-caption:before{width:30px}
+    .author-v6-copy{grid-area:copy;display:flex;flex-direction:column;justify-content:center;min-width:0;padding:20px 0}
+    .author-v6-role{margin-bottom:20px;color:var(--green)}
+    .author-v6-name{font-size:clamp(45px,4.4vw,69px);line-height:.9;overflow-wrap:anywhere}
+    .author-v6-name span{color:#fff}
+    .author-v6-facts{margin-top:44px}
+    .author-v6-fact{grid-template-columns:120px minmax(0,1fr);gap:28px;padding:22px 0;font-size:16px;line-height:1.55}
+    .author-v6-fact strong{color:var(--green)}
+    .author-v6-mission{margin-top:32px;padding:24px 0 0;border:0;border-top:2px solid var(--green);background:none;border-radius:0;box-shadow:none}
+    .author-v6-mission strong{margin-bottom:12px;color:var(--green)}
+    .author-v6-mission p{max-width:680px;font-size:17px;line-height:1.58}
+
+    /* Program: a quiet silver index with large data and readable, open rows. */
+    .course-program.program-v7{padding:120px 0 130px;background:var(--cream)!important;color:var(--ink)}
+    .program-v7-number{top:.025em;right:-.035em;color:rgba(45,45,45,.055)}
+    .program-v7-intro{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(280px,.7fr);grid-template-rows:auto auto auto;gap:0 74px;padding:0}
+    .program-v7-kicker{grid-column:1;grid-row:1;margin:0 0 28px}
+    .program-v7-title{grid-column:1;grid-row:2;font-size:clamp(58px,6.4vw,96px)}
+    .program-v7-title span{color:var(--green)}
+    .program-v7-lead{grid-column:1;grid-row:3;margin:35px 0 0;max-width:650px;color:var(--ink);font-size:19px}
+    .program-v7-facts{grid-column:2;grid-row:1/4;display:grid;grid-template-columns:1fr 1fr;align-self:end;gap:0;margin:0;padding:0;border:0;border-radius:0;background:none;color:var(--ink);box-shadow:none;opacity:1;transform:none}
+    .program-v7-fact,.program-v7-fact:nth-child(even){display:flex;flex-direction:column;justify-content:flex-end;min-height:118px;padding:20px 12px 18px 0;border:0;border-top:1px solid rgba(45,45,45,.36);font-size:clamp(15px,1.45vw,20px);line-height:1.1}
+    .program-v7-fact:nth-child(even){padding-left:15px}
+    .program-v7-fact:first-child{grid-column:1/-1;min-height:138px;padding:0 0 20px;border-top:0;font-size:clamp(65px,7vw,106px);line-height:.79;letter-spacing:-.09em;color:var(--ink)}
+    .program-v7-fact:first-child span{margin-top:15px;color:#5a5a5e;font-size:14px;letter-spacing:0}
+    .program-v7-fact span{margin-top:10px;color:#5a5a5e;font-size:13px}
+    .program-v7-list{margin-top:86px;border-top:2px solid var(--ink)}
+    .program-v7-item{border-bottom:1px solid #aaaab0}
+    .program-v7-item summary{grid-template-columns:64px minmax(0,1fr) 52px;gap:20px;align-items:center;padding:32px 0}
+    .program-v7-index{color:#55555a}
+    .program-v7-summary h3{color:var(--ink);font-size:clamp(27px,2.65vw,42px)}
+    .program-v7-item[open] .program-v7-summary h3{color:var(--ink)}
+    .program-v7-summary p{color:#57575b}
+    .program-v7-toggle{display:grid;place-items:center;grid-column:3;width:44px;height:44px;margin:0;padding:0;border:1px solid var(--ink);border-radius:50%;background:transparent;color:var(--ink);font-size:0}
+    .program-v7-toggle:before{content:"";position:absolute;left:50%;top:50%;width:16px;height:2px;background:var(--ink);transform:translate(-50%,-50%)}
+    .program-v7-toggle:after{content:"";position:absolute;left:50%;top:50%;width:2px;height:16px;border:0;border-radius:0;background:var(--ink);transform:translate(-50%,-50%);transition:transform .3s ease}
+    .program-v7-item[open] .program-v7-toggle:before{content:"";position:absolute}
+    .program-v7-item[open] .program-v7-toggle:after{transform:translate(-50%,-50%) rotate(90deg)}
+    .program-v7-item summary:hover .program-v7-toggle{background:var(--green);color:var(--ink);transform:none}
+    .program-v7-body{grid-template-columns:minmax(0,1.3fr) minmax(250px,.7fr);gap:64px;padding:10px 72px 56px 84px}
+    .program-v7-topics li,.program-v7-note p{color:#4c4c51;font-size:15px}
+    .program-v7-aside{border-left-color:#aaaab0}
+
+    /* Finale: a full-width closing statement, without a form or card. */
+    .cta-finale{padding:120px 0 58px;background:var(--green)!important;color:var(--ink)}
+    .cta-finale-number{top:-.05em;right:-.045em;color:rgba(255,255,255,.17)}
+    .cta-finale-kicker{margin-bottom:42px}
+    .cta-finale h2{max-width:1180px;font-size:clamp(63px,7.5vw,116px);line-height:.86}
+    .cta-finale h2 span{color:#fff}
+    .cta-finale-bottom{grid-template-columns:minmax(0,.9fr) minmax(300px,.65fr);gap:12%;align-items:end;margin-top:76px;padding-top:32px;border-top:1px solid rgba(45,45,45,.5)}
+    .cta-finale-bottom p{max-width:560px;font-size:19px;line-height:1.58}
+    .finale-action{min-width:0;width:100%;padding:22px 27px}
+    .cta-finale-line{margin-top:100px;border-top-color:rgba(45,45,45,.5)}
+    .cta-finale-line span+span{border-left-color:rgba(45,45,45,.5)}
+    footer{background:var(--ink);color:#fff}
+    footer .brand-logo{filter:brightness(0) invert(1)}
+
+    @media(max-width:1000px){
+      .author-v6-layout{gap:38px;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+      .author-v6-photo,.author-v6.visible .author-v6-photo{min-height:620px}
+      .author-v6-fact{grid-template-columns:1fr;gap:8px}
+      .program-v7-intro{gap:0 38px}
+      .program-v7-body{gap:34px;padding-right:56px}
+    }
+    @media(max-width:700px){
+      .author.author-v6{padding:78px 0 84px}
+      .author-v6-title{margin:20px 0 42px;font-size:clamp(40px,9.8vw,58px)}
+      .author-v6-layout{display:flex;flex-direction:column;gap:0}
+      .author-v6-photo,.author-v6.visible .author-v6-photo{order:0;width:100%;height:min(112vw,540px);min-height:0;max-width:540px;align-self:center}
+      .author-v6-photo img{width:115%;height:100%}
+      .author-v6-copy{order:1;padding:34px 0 0}
+      .author-v6-name{font-size:clamp(40px,10vw,58px)}
+      .author-v6-facts{margin-top:30px}
+      .author-v6-fact{font-size:16px}
+      .author-v6-mission{padding:22px 0 0}
+      .author-v6-mission p{font-size:16px}
+      .course-program.program-v7{padding:80px 0 88px}
+      .program-v7-intro{display:block}
+      .program-v7-kicker{margin-bottom:25px}
+      .program-v7-title{font-size:clamp(48px,11vw,69px)}
+      .program-v7-lead{margin-top:27px;font-size:17px}
+      .program-v7-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:46px;padding:0}
+      .program-v7-fact:first-child{font-size:76px;min-height:115px}
+      .program-v7-fact,.program-v7-fact:nth-child(even){min-height:100px;padding:18px 12px 18px 0;font-size:18px}
+      .program-v7-fact:nth-child(even){padding-left:10px}
+      .program-v7-list{margin-top:50px}
+      .program-v7-item summary{grid-template-columns:34px minmax(0,1fr) 34px;gap:10px;padding:26px 0}
+      .program-v7-summary h3{font-size:clamp(22px,6vw,28px)}
+      .program-v7-summary p{font-size:15px}
+      .program-v7-toggle{grid-column:3;width:32px;height:32px;margin:0}
+      .program-v7-body{display:block;padding:4px 0 38px 44px}
+      .program-v7-topics li,.program-v7-note p{font-size:16px}
+      .program-v7-aside{margin-top:32px;padding-left:18px}
+      .cta-finale{padding:80px 0 38px}
+      .cta-finale h2{font-size:clamp(45px,10.3vw,68px)}
+      .cta-finale-bottom{display:block;margin-top:48px;padding-top:28px}
+      .cta-finale-bottom p{font-size:17px}
+      .finale-action{margin-top:32px}
+      .cta-finale-line{margin-top:65px}
+    }
+    @media(max-width:400px){
+      .program-v7-fact:first-child{font-size:64px}
+      .program-v7-fact,.program-v7-fact:nth-child(even){font-size:16px}
+      .author-v6-name{font-size:38px}
+      .cta-finale h2{font-size:42px}
+    }
+    @media(prefers-reduced-motion:reduce){.author-v6-photo img,.program-v7-toggle:after{transition:none}}
 
   </style>
 </head>
@@ -1147,7 +1282,7 @@
 
     <section class="tariffs tariffs-v2" id="tariffs"><div class="tariffs-v2-number" aria-hidden="true">08</div><div class="wrap tariffs-v2-shell reveal"><div class="tariffs-v2-head"><div><div class="tariffs-v2-kicker">Форматы участия</div><h2 class="tariffs-v2-title">Выберите<span>поддержку</span></h2></div><p class="tariffs-v2-lead">Во всех тарифах — полная программа курса, практические материалы и последовательный путь от изучения процедуры до самостоятельной работы с земельным участком.</p></div><div class="tariff-grid"><article class="tariff-card"><div class="tariff-label">Самостоятельный</div><h3>Без обратной связи</h3><div class="tariff-price">7 900 ₽</div><ul class="tariff-features"><li>доступ ко всем модулям и 70+ урокам</li><li>практические видео и пошаговые инструкции</li><li>шаблоны заявлений и документов</li><li>самостоятельное прохождение в удобном темпе</li></ul><a class="tariff-action js-open-lesson" href="#lesson"><span>Начать с первого урока</span><svg class="cta-arrow" aria-hidden="true" viewBox="0 0 26 26"><path d="M4 22 22 4M9 4h13v13"/></svg></a></article><article class="tariff-card"><div class="tariff-label">С сопровождением</div><h3>Личная обратная связь</h3><div class="tariff-price">14 900 ₽</div><ul class="tariff-features"><li>все материалы тарифа «Самостоятельный»</li><li>личная обратная связь в мессенджере</li><li>ответы на вопросы по материалам курса</li><li>поддержка в течение трех месяцев</li></ul><a class="tariff-action js-open-lesson" href="#lesson"><span>Начать с первого урока</span><svg class="cta-arrow" aria-hidden="true" viewBox="0 0 26 26"><path d="M4 22 22 4M9 4h13v13"/></svg></a></article><article class="tariff-card"><div class="tariff-label">Расширенный</div><h3>Юридическая помощь</h3><div class="tariff-price"><small>Стоимость</small><br>индивидуально</div><ul class="tariff-features"><li>все материалы тарифа «С сопровождением»</li><li>правовой анализ одного отказа органа власти</li><li>подготовка правовой позиции и плана дальнейших действий</li><li>подготовка одного искового или административного искового заявления</li><li>подготовка процессуальных документов по одному делу: ходатайств, письменных пояснений, возражений и дополнений</li></ul><p class="tariff-scope">Документальное сопровождение без представительства в судебных заседаниях.</p><a class="tariff-action js-open-lesson" href="#lesson"><span>Обсудить формат</span><svg class="cta-arrow" aria-hidden="true" viewBox="0 0 26 26"><path d="M4 22 22 4M9 4h13v13"/></svg></a></article></div></div></section>
 
-    <section class="cta-finale" id="lesson"><div class="cta-finale-number" aria-hidden="true">09</div><div class="wrap cta-finale-inner reveal"><div class="cta-finale-kicker">Первый шаг — бесплатно</div><h2>Земля становится<br><span>понятнее с первого урока</span></h2><div class="cta-finale-bottom"><p>Начните с главного: разберитесь, как устроен путь к участку у государства и какие действия действительно ведут к результату.</p><a class="primary finale-action js-open-lesson" href="#lesson"><span>Получить бесплатный урок</span><i aria-hidden="true">↗</i></a></div><div class="cta-finale-line" aria-hidden="true"><span>Понятная процедура</span><span>Самостоятельные решения</span><span>Знания на годы</span></div></div></section>
+    <section class="cta-finale" id="lesson"><div class="cta-finale-number" aria-hidden="true">09</div><div class="wrap cta-finale-inner reveal"><div class="cta-finale-kicker">Первый шаг — бесплатно</div><h2>Начните с урока.<br><span>Продолжите сами.</span></h2><div class="cta-finale-bottom"><p>Разберитесь, как устроен путь от поиска участка до оформления земли. Первый урок поможет увидеть последовательность действий и выбрать свой следующий шаг.</p><a class="primary finale-action js-open-lesson" href="#lesson"><span>Получить бесплатный урок</span><svg class="cta-arrow" aria-hidden="true" viewBox="0 0 26 26"><path d="M4 22 22 4M9 4h13v13"/></svg></a></div><div class="cta-finale-line" aria-hidden="true"><span>Поиск участка</span><span>Проверка территории</span><span>Оформление земли</span></div></div></section>
   </main>
 
   <dialog class="lesson-modal" id="lessonDialog" aria-labelledby="lessonDialogTitle"><div class="modal-card modal-card-simple"><button class="modal-close" type="button" aria-label="Закрыть окно">×</button><div class="modal-body"><div class="modal-simple-kicker">Бесплатный первый урок</div><h2 id="lessonDialogTitle">Начните с главного</h2><p>Оставьте контакты — мы отправим вам доступ к первому уроку.</p><form class="modal-form" id="lessonModalForm"><label class="modal-field"><span>Имя</span><input required type="text" name="name" autocomplete="name" placeholder="Введите имя"></label><label class="modal-field"><span>Телефон</span><input required type="tel" name="phone" autocomplete="tel" placeholder="+7 999 000-00-00"></label><label class="modal-field"><span>Электронная почта</span><input required type="email" name="email" autocomplete="email" placeholder="mail@example.ru"></label><button class="modal-submit" type="submit"><span>Получить бесплатный урок</span><svg class="cta-arrow" aria-hidden="true" viewBox="0 0 26 26"><path d="M4 22 22 4M9 4h13v13"/></svg></button><label class="modal-consent"><input required type="checkbox" name="consent"> <span>Даю согласие на обработку персональных данных</span></label><div class="modal-success">Спасибо! Данные приняты.</div></form></div></div></dialog>
