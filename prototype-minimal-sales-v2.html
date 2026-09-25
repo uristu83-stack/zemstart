@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Земельный старт — минималистичный продающий прототип</title>
+<meta name="description" content="Практический курс о том, как самостоятельно найти и оформить землю у государства для строительства дома.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F2EA;
+  --paper:#FBFAF6;
+  --ink:#20231D;
+  --muted:#6C7065;
+  --olive:#67763F;
+  --olive-soft:#DDE4C6;
+  --line:#D8D6CC;
+  --white:#FFFFFF;
+  --max:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+button{font:inherit}
+.wrap{width:min(var(--max),calc(100% - 64px));margin:auto}
+.eyebrow{font:700 11px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--olive);margin-bottom:18px}
+.display{font:800 clamp(54px,6.6vw,104px)/.86 Manrope,sans-serif;letter-spacing:-.07em;margin:0;text-transform:uppercase}
+.h2{font:800 clamp(40px,4.6vw,72px)/.92 Manrope,sans-serif;letter-spacing:-.055em;margin:0}
+.lead{font-size:18px;line-height:1.62;color:var(--muted);margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:18px;padding:17px 22px;border-radius:999px;border:1px solid var(--ink);font-weight:700;font-size:14px;transition:.2s}
+.btn.primary{background:var(--ink);color:#fff}
+.btn.alt{background:transparent}
+.btn:hover{transform:translateY(-2px)}
+section{padding:110px 0;border-top:1px solid var(--line)}
+header{position:sticky;top:0;z-index:100;background:rgba(244,242,234,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{min-height:78px;display:grid;grid-template-columns:250px 1fr auto;gap:30px;align-items:center}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:58px;height:58px;object-fit:contain;filter:grayscale(1) brightness(.42)}
+.brand strong{font:800 16px/1.05 Manrope,sans-serif}
+.brand small{display:block;margin-top:4px;color:var(--muted);font-size:10px}
+.navlinks{display:flex;justify-content:center;gap:28px;font-size:12px;font-weight:600}
+.navcta{background:var(--olive);color:#fff;padding:13px 18px;border-radius:999px;font-size:12px;font-weight:700}
+
+.hero{border-top:0;padding:64px 0 80px;min-height:calc(100vh - 78px);display:flex;align-items:center}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.65fr);gap:70px;align-items:end}
+.hero h1{max-width:850px}
+.hero-sub{max-width:760px;font:600 clamp(24px,2.5vw,38px)/1.15 Manrope,sans-serif;letter-spacing:-.035em;margin:30px 0 18px}
+.hero-copy{max-width:740px;font-size:17px;line-height:1.62;color:var(--muted);margin:0}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:30px 0 24px}
+.hero-meta{font-size:12px;color:var(--muted)}
+.hero-card{background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:34px;min-height:430px;display:flex;flex-direction:column}
+.hero-card small{font:700 10px Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--olive)}
+.hero-card .big{font:800 clamp(62px,6vw,94px)/.85 Manrope,sans-serif;letter-spacing:-.07em;margin:76px 0 10px}
+.hero-card .big span{font-size:.42em;letter-spacing:-.03em}
+.hero-card p{color:var(--muted);line-height:1.5;margin:0}
+.hero-bars{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:end;height:115px}
+.bar{display:flex;flex-direction:column;justify-content:flex-end;gap:8px;height:100%}
+.bar i{display:block;background:#C9C8C0;border-radius:7px 7px 0 0}
+.bar.market i{height:92px}.bar.state i{height:22px;background:var(--olive)}
+.bar span{font-size:10px;color:var(--muted)}
+.disclaimer{margin-top:18px;font-size:10px;line-height:1.5;color:#8A8D84}
+
+.section-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.5fr);gap:70px;align-items:end;margin-bottom:64px}
+.section-no{font:800 11px Manrope,sans-serif;color:#9A9D94;margin-bottom:14px}
+.audience-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.audience-item{padding:32px 28px 34px 0;min-height:260px;display:flex;flex-direction:column}
+.audience-item+.audience-item{border-left:1px solid var(--line);padding-left:28px}
+.audience-item b{font:800 12px Manrope,sans-serif;color:var(--olive)}
+.audience-item h3{font:800 26px/1 Manrope,sans-serif;letter-spacing:-.035em;margin:72px 0 14px}
+.audience-item p{margin:auto 0 0;color:var(--muted);font-size:14px;line-height:1.5}
+
+.value{background:var(--ink);color:#fff}
+.value .eyebrow{color:#B9C78B}.value .lead{color:rgba(255,255,255,.62)}
+.value-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.18);border-bottom:1px solid rgba(255,255,255,.18)}
+.value-item{padding:34px 34px 38px 0;min-height:330px;display:flex;flex-direction:column}
+.value-item+.value-item{border-left:1px solid rgba(255,255,255,.18);padding-left:34px}
+.value-item small{font:700 10px Manrope,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#B9C78B}
+.value-item strong{display:block;font:800 clamp(42px,4vw,64px)/.88 Manrope,sans-serif;letter-spacing:-.055em;margin:64px 0 20px}
+.value-item p{margin:auto 0 0;color:rgba(255,255,255,.62);font-size:14px;line-height:1.55}
+.value-note{margin-top:30px;max-width:920px;font:600 20px/1.5 Manrope,sans-serif}
+
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.skill{background:var(--bg);padding:34px;min-height:280px}
+.skill .num{font:700 12px Manrope,sans-serif;color:var(--olive)}
+.skill h3{font:800 29px/1 Manrope,sans-serif;letter-spacing:-.04em;margin:72px 0 16px}
+.skill p{color:var(--muted);font-size:14px;line-height:1.55;margin:0}
+
+.path{background:var(--paper)}
+.path-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.path-item{padding:28px 28px 32px 0;min-height:290px;display:flex;flex-direction:column}
+.path-item+.path-item{border-left:1px solid var(--line);padding-left:28px}
+.path-item span{font:800 11px Manrope,sans-serif;color:var(--olive)}
+.path-item h3{font:800 29px/1 Manrope,sans-serif;letter-spacing:-.04em;margin:80px 0 14px}
+.path-item p{margin:auto 0 0;color:var(--muted);font-size:14px;line-height:1.52}
+
+.program-shell{display:grid;grid-template-columns:330px minmax(0,1fr);gap:52px;align-items:start}
+.module-nav{border-top:1px solid var(--line);position:sticky;top:104px}
+.module-btn{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);padding:19px 0;text-align:left;display:grid;grid-template-columns:40px 1fr;gap:12px;cursor:pointer;color:var(--muted)}
+.module-btn b{font:800 11px Manrope,sans-serif}
+.module-btn span{font:700 13px/1.35 Manrope,sans-serif}
+.module-btn.active{color:var(--ink)}
+.module-btn.active b{color:var(--olive)}
+.module-panel{display:none}
+.module-panel.active{display:block}
+.module-kicker{font:800 11px Manrope,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--olive)}
+.module-title{font:800 clamp(38px,4.1vw,62px)/.92 Manrope,sans-serif;letter-spacing:-.052em;margin:14px 0 22px}
+.module-intro{max-width:800px;font-size:17px;line-height:1.58;color:var(--muted)}
+.module-body{display:grid;grid-template-columns:1fr 300px;gap:46px;margin-top:34px}
+.module-body ul{margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.module-body li{position:relative;padding:13px 0 13px 22px;border-bottom:1px solid var(--line);font-size:14px;line-height:1.45;color:#50544A}
+.module-body li:before{content:"+";position:absolute;left:0;color:var(--olive);font-weight:800}
+.module-result{background:var(--olive-soft);border-radius:22px;padding:24px;align-self:start}
+.module-result small{font:800 10px Manrope,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--olive)}
+.module-result p{font:600 16px/1.55 Manrope,sans-serif;margin:18px 0 0}
+
+.included-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.included-item{padding:30px 28px 34px 0;min-height:270px;display:flex;flex-direction:column}
+.included-item+.included-item{border-left:1px solid var(--line);padding-left:28px}
+.included-item b{font:800 11px Manrope,sans-serif;color:var(--olive)}
+.included-item h3{font:800 26px/1 Manrope,sans-serif;letter-spacing:-.035em;margin:74px 0 14px}
+.included-item p{margin:auto 0 0;color:var(--muted);font-size:14px;line-height:1.5}
+
+.author{background:var(--paper)}
+.author-grid{display:grid;grid-template-columns:minmax(340px,.65fr) minmax(0,1fr);gap:70px;align-items:stretch}
+.author-photo{background:var(--olive-soft);border-radius:28px;min-height:640px;position:relative;overflow:hidden}
+.author-photo img{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:96%;width:auto;max-width:none;object-fit:contain}
+.author-copy{padding:20px 0;display:flex;flex-direction:column}
+.author-role{font:800 11px Manrope,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--olive)}
+.author-name{font:800 clamp(48px,5vw,78px)/.88 Manrope,sans-serif;letter-spacing:-.065em;margin:16px 0 32px}
+.author-statement{font:600 24px/1.45 Manrope,sans-serif;max-width:720px;margin:0;padding:28px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.author-facts{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:30px}
+.author-facts div{font-size:14px;line-height:1.55;color:var(--muted)}
+.author-facts strong{display:block;color:var(--ink);margin-bottom:8px}
+
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.price{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:30px;display:flex;flex-direction:column;min-height:520px}
+.price.featured{background:var(--ink);color:#fff}
+.price .tag{font:800 10px Manrope,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--olive)}
+.price.featured .tag{color:#B9C78B}
+.price h3{font:800 29px/1 Manrope,sans-serif;letter-spacing:-.035em;margin:18px 0}
+.price .sum{font:800 48px/.9 Manrope,sans-serif;letter-spacing:-.055em;margin:12px 0 28px}
+.price ul{list-style:none;padding:0;margin:0 0 30px}
+.price li{position:relative;padding:10px 0 10px 20px;border-bottom:1px solid var(--line);font-size:14px;line-height:1.4}
+.price li:before{content:"+";position:absolute;left:0;font-weight:800}
+.price.featured li{border-color:rgba(255,255,255,.12)}
+.price .btn{margin-top:auto}
+.price.featured .btn{background:#fff;color:var(--ink);border-color:#fff}
+
+.faq-layout{display:grid;grid-template-columns:330px 1fr;gap:80px}
+.faq-list{border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:24px 0;display:grid;grid-template-columns:1fr 30px;gap:20px;font:700 18px/1.35 Manrope,sans-serif}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font-size:24px;font-weight:500}
+details[open] summary:after{content:"−"}
+.faq-answer{padding:0 50px 24px 0;color:var(--muted);font-size:14px;line-height:1.6}
+
+.final{background:var(--olive);color:#fff}
+.final-grid{display:grid;grid-template-columns:1fr .55fr;gap:70px;align-items:end}
+.final h2{font:800 clamp(52px,6vw,92px)/.86 Manrope,sans-serif;letter-spacing:-.07em;margin:0}
+.final p{font-size:17px;line-height:1.6;color:rgba(255,255,255,.8)}
+.final .btn{background:#fff;color:var(--ink);border-color:#fff}
+footer{padding:28px 0;background:var(--ink);color:rgba(255,255,255,.55);font-size:11px}
+.footer{display:flex;justify-content:space-between;gap:30px}
+
+@media(max-width:980px){
+  .wrap{width:min(var(--max),calc(100% - 36px))}
+  .nav{grid-template-columns:1fr auto}.navlinks{display:none}
+  .hero-grid,.section-head,.author-grid,.final-grid{grid-template-columns:1fr}
+  .hero-card{min-height:330px}.hero-card .big{margin-top:35px}
+  .audience-grid,.value-grid,.path-grid,.included-grid{grid-template-columns:1fr 1fr}
+  .audience-item:nth-child(3),.path-item:nth-child(3),.included-item:nth-child(3){border-left:0;border-top:1px solid var(--line)}
+  .value-item:nth-child(3){border-left:0;border-top:1px solid rgba(255,255,255,.18)}
+  .skills-grid{grid-template-columns:1fr 1fr}
+  .program-shell{grid-template-columns:1fr}.module-nav{position:relative;top:auto;display:flex;overflow:auto;gap:8px;border-top:0}
+  .module-btn{flex:0 0 210px;border:1px solid var(--line);border-radius:18px;padding:14px}
+  .module-body{grid-template-columns:1fr}
+  .pricing{grid-template-columns:1fr}
+  .faq-layout{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+  section{padding:78px 0}.wrap{width:calc(100% - 30px)}
+  .brand img{width:48px;height:48px}.brand small{display:none}.brand strong{font-size:14px}
+  .nav{min-height:68px}.navcta{font-size:10px;padding:11px 13px}
+  .hero{padding:46px 0 64px;min-height:0}.hero-grid{gap:34px}
+  .display{font-size:48px}.hero-sub{font-size:24px}.hero-copy{font-size:15px}
+  .hero-actions .btn{width:100%}
+  .audience-grid,.value-grid,.skills-grid,.path-grid,.included-grid{grid-template-columns:1fr}
+  .audience-item+.audience-item,.path-item+.path-item,.included-item+.included-item{border-left:0;border-top:1px solid var(--line);padding-left:0}
+  .value-item+.value-item{border-left:0;border-top:1px solid rgba(255,255,255,.18);padding-left:0}
+  .audience-item,.path-item,.included-item{min-height:220px}.audience-item h3,.path-item h3,.included-item h3{margin-top:52px}
+  .skill{min-height:240px}.skill h3{margin-top:52px}
+  .module-nav{margin:0 -15px;padding:0 15px}.module-title{font-size:36px}
+  .author-photo{min-height:500px}.author-facts{grid-template-columns:1fr}
+  .price{min-height:0}
+  .final h2{font-size:46px}
+  .footer{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <img src="assets/logo-zemelny-start.svg" alt="Земельный старт">
+      <span><strong>Земельный старт</strong><small>курс о земле от государства</small></span>
+    </a>
+    <nav class="navlinks">
+      <a href="#forwho">Для кого</a>
+      <a href="#program">Программа</a>
+      <a href="#author">Об авторе</a>
+      <a href="#tariffs">Тарифы</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="navcta" href="#lesson">Бесплатный урок →</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Практический курс по получению земли от государства</div>
+      <h1 class="display">Свой участок — до 90% дешевле рынка*</h1>
+      <div class="hero-sub">Научитесь самостоятельно находить и оформлять землю для строительства дома.</div>
+      <p class="hero-copy">
+        От первого поиска на НСПД до проверки территории, СРЗУ, документов, торгов и договора. 
+        Курс рассчитан на людей без юридического образования и дает понятный алгоритм, которым можно пользоваться снова.
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#lesson">Получить бесплатный урок →</a>
+        <a class="btn alt" href="#program">Посмотреть программу</a>
+      </div>
+      <div class="hero-meta">70+ практических уроков · обучение с нуля · тарифы от 7 900 ₽</div>
+      <div class="disclaimer">* В отдельных случаях. Итоговая стоимость участка зависит от региона, кадастровой стоимости, способа предоставления и результатов торгов.</div>
+    </div>
+    <aside class="hero-card">
+      <small>Почему стоит разобраться</small>
+      <div class="big">до 90<span>%</span></div>
+      <p>может составлять разница между стоимостью участка от государства и аналогичным предложением на рынке в отдельных случаях.</p>
+      <div class="hero-bars">
+        <div class="bar market"><i></i><span>Рыночная цена</span></div>
+        <div class="bar state"><i></i><span>Цена участка от государства</span></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section id="forwho">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="section-no">01</div><div class="eyebrow">Для кого</div><h2 class="h2">Один навык — несколько целей</h2></div>
+      <p class="lead">Вы можете прийти на курс ради своего дома, чтобы перестать зависеть от посредника или чтобы освоить новое направление. Юридическое образование не требуется.</p>
+    </div>
+    <div class="audience-grid">
+      <article class="audience-item"><b>01</b><h3>Для своего дома</h3><p>Если хотите участок для себя и семьи, но цены на готовую землю кажутся слишком высокими.</p></article>
+      <article class="audience-item"><b>02</b><h3>Если вы новичок</h3><p>Разберетесь в процедуре с нуля: без необходимости самостоятельно изучать десятки законов и сервисов.</p></article>
+      <article class="audience-item"><b>03</b><h3>Без посредника</h3><p>Освоите сам алгоритм и сможете применять его снова, не оплачивая каждый новый поиск как отдельную услугу.</p></article>
+      <article class="audience-item"><b>04</b><h3>Для дальнейшей работы</h3><p>Навык поиска и анализа участков можно развивать дальше и использовать в работе с другими людьми.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="value">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="section-no">02</div><div class="eyebrow">В чем выгода</div><h2 class="h2">Не переплачивать — ни за землю, ни за знания</h2></div>
+      <p class="lead">Смысл «Земельного старта» не в том, чтобы сделать «дешевый курс». Смысл — дать сильное практическое обучение по разумной цене и научить вас действовать самостоятельно.</p>
+    </div>
+    <div class="value-grid">
+      <article class="value-item"><small>Земля</small><strong>до 90% ниже рынка*</strong><p>В отдельных ситуациях участок у государства может обойтись значительно дешевле готового предложения на рынке.</p></article>
+      <article class="value-item"><small>Посредник</small><strong>не платить каждый раз</strong><p>Вы осваиваете процесс сами и не зависите от платного сопровождения при каждом следующем участке.</p></article>
+      <article class="value-item"><small>Обучение</small><strong>14 900 ₽ с поддержкой</strong><p>Полная программа и личная обратная связь без цены в сотни тысяч рублей только за доступ к знаниям.</p></article>
+    </div>
+    <div class="value-note">Знания остаются у вас: для своего участка, следующих участков семьи или дальнейшего развития в земельной сфере.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="section-no">03</div><div class="eyebrow">Результат</div><h2 class="h2">Что вы научитесь делать самостоятельно</h2></div>
+      <p class="lead">Не просто «понимать тему земли», а выполнять конкретные действия, из которых складывается весь путь оформления.</p>
+    </div>
+    <div class="skills-grid">
+      <article class="skill"><div class="num">01</div><h3>Искать землю</h3><p>Работать с НСПД, кадастровыми кварталами, сформированными участками и свободными территориями.</p></article>
+      <article class="skill"><div class="num">02</div><h3>Проверять участок</h3><p>Оценивать территорию до подачи документов: ПЗЗ, генплан, ВРИ, размеры, ЗОУИТ и другие ограничения.</p></article>
+      <article class="skill"><div class="num">03</div><h3>Понимать процедуру</h3><p>Определять, кто распоряжается землей, куда подавать заявление и какой порядок применяется в вашей ситуации.</p></article>
+      <article class="skill"><div class="num">04</div><h3>Готовить СРЗУ</h3><p>Работать с кадастровым планом территории и готовить схему расположения участка в АРГО Гео.</p></article>
+      <article class="skill"><div class="num">05</div><h3>Подавать документы</h3><p>Понимать, какое заявление нужно на конкретном этапе и что приложить к нему.</p></article>
+      <article class="skill"><div class="num">06</div><h3>Участвовать в торгах</h3><p>Искать извещения, читать аукционную документацию, подавать заявку и понимать дальнейшие действия.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="path">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="section-no">04</div><div class="eyebrow">Как проходит путь</div><h2 class="h2">От первого поиска — до понятного следующего шага</h2></div>
+      <p class="lead">У конкурентов хорошо работает показ обучения как маршрута. Здесь он адаптирован под твою программу: без обещаний «первого участка за 8 недель», но с четким пониманием, что человек делает на каждом этапе.</p>
+    </div>
+    <div class="path-grid">
+      <article class="path-item"><span>Этап 01</span><h3>Разобраться</h3><p>Понять, как государство и муниципалитеты предоставляют землю, какие есть способы и кто принимает решения.</p></article>
+      <article class="path-item"><span>Этап 02</span><h3>Найти и проверить</h3><p>Подобрать территорию, проверить градостроительные документы и понять, имеет ли смысл двигаться дальше.</p></article>
+      <article class="path-item"><span>Этап 03</span><h3>Подготовить</h3><p>Сделать СРЗУ, собрать заявление и документы, подготовиться к подаче.</p></article>
+      <article class="path-item"><span>Этап 04</span><h3>Пройти процедуру</h3><p>Понимать дальнейшие действия: публикация, торги, договор или работа с отказом.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="program">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="section-no">05</div><div class="eyebrow">Программа курса</div><h2 class="h2">Все этапы — в одной системе</h2></div>
+      <p class="lead">70+ уроков, практические видео, пошаговые инструкции и шаблоны документов. Программа идет в той последовательности, в которой знания понадобятся вам на практике.</p>
+    </div>
+    <div class="program-shell">
+      <div class="module-nav">
+        <button class="module-btn active" data-id="m1"><b>01</b><span>Как устроено получение земли у государства</span></button>
+        <button class="module-btn" data-id="m2"><b>02</b><span>Как проверить территорию</span></button>
+        <button class="module-btn" data-id="m3"><b>03</b><span>Как искать участок на НСПД</span></button>
+        <button class="module-btn" data-id="m4"><b>04</b><span>Как подготовить СРЗУ и документы</span></button>
+        <button class="module-btn" data-id="m5"><b>05</b><span>Земельные торги</span></button>
+      </div>
+      <div>
+        <article class="module-panel active" id="m1">
+          <div class="module-kicker">Модуль 01</div><h3 class="module-title">Как устроено получение земли у государства</h3>
+          <p class="module-intro">Соберем фундамент: какие участки бывают, кто ими распоряжается, чем отличаются торги и предоставление без торгов, аренда и собственность.</p>
+          <div class="module-body"><div><ul>
+            <li>основные положения Земельного кодекса РФ</li><li>разграниченная и неразграниченная государственная собственность</li><li>полномочия органов власти и местного самоуправления</li><li>как определить, куда подавать заявление</li><li>предоставление с торгами и без торгов</li><li>предварительное согласование</li><li>аренда и приобретение в собственность</li><li>сроки, арендная плата, выкупная и кадастровая стоимость</li>
+          </ul></div><aside class="module-result"><small>После модуля</small><p>Вы понимаете весь путь получения участка и знаете, какой этап следует за каким.</p></aside></div>
+        </article>
+        <article class="module-panel" id="m2">
+          <div class="module-kicker">Модуль 02</div><h3 class="module-title">Как проверить территорию до оформления</h3>
+          <p class="module-intro">Учимся заранее понимать, подходит ли выбранное место для строительства дома и нет ли причин, из-за которых оформление дальше не имеет смысла.</p>
+          <div class="module-body"><div><ul>
+            <li>генеральный план и функциональные зоны</li><li>Правила землепользования и застройки</li><li>территориальные зоны и градостроительные регламенты</li><li>виды разрешенного использования</li><li>минимальные и максимальные размеры участков</li><li>проекты планировки и межевания</li><li>ЗОУИТ и другие ограничения</li><li>где искать актуальные документы</li>
+          </ul></div><aside class="module-result"><small>После модуля</small><p>Сможете провести первичную градостроительную проверку и решить, стоит ли идти дальше.</p></aside></div>
+        </article>
+        <article class="module-panel" id="m3">
+          <div class="module-kicker">Модуль 03</div><h3 class="module-title">Как искать землю на НСПД</h3>
+          <p class="module-intro">Практический модуль по поиску участка или свободной территории и ее первичному анализу.</p>
+          <div class="module-body"><div><ul>
+            <li>основные инструменты НСПД</li><li>алгоритм поиска свободной территории</li><li>кадастровые кварталы, участки и объекты недвижимости</li><li>поиск с учетом существующей застройки</li><li>сопоставление НСПД, генплана и ПЗЗ</li><li>предполагаемые границы, площадь и конфигурация</li><li>участки в собственности публично-правовых образований (СППО)</li>
+          </ul></div><aside class="module-result"><small>После модуля</small><p>Сможете самостоятельно подобрать территорию и понять, какой путь оформления подходит для нее.</p></aside></div>
+        </article>
+        <article class="module-panel" id="m4">
+          <div class="module-kicker">Модуль 04</div><h3 class="module-title">Как подготовить СРЗУ и документы</h3>
+          <p class="module-intro">Переходим от анализа территории к подготовке схемы и комплекта документов.</p>
+          <div class="module-body"><div><ul>
+            <li>кадастровый план территории (КПТ)</li><li>работа в АРГО Гео</li><li>формирование границ участка</li><li>требования к СРЗУ</li><li>проверка схемы</li><li>заявление о предварительном согласовании</li><li>комплект документов и подготовка к подаче</li>
+          </ul></div><aside class="module-result"><small>После модуля</small><p>Будете понимать, как самостоятельно подготовить СРЗУ и документы для начала процедуры.</p></aside></div>
+        </article>
+        <article class="module-panel" id="m5">
+          <div class="module-kicker">Модуль 05</div><h3 class="module-title">Земельные торги</h3>
+          <p class="module-intro">Разбираемся, что происходит, если участок выставляют на аукцион, и как пройти этот этап осознанно.</p>
+          <div class="module-body"><div><ul>
+            <li>когда участок переходит к торгам</li><li>поиск участков и извещений на ГИС Торги</li><li>анализ извещения и документации</li><li>проверка участка до участия</li><li>электронная подпись и торговая площадка</li><li>заявка, задаток, допуск и отказ</li><li>порядок электронного аукциона</li><li>предельная стоимость и стратегия участия</li><li>договор аренды или купли-продажи</li>
+          </ul></div><aside class="module-result"><small>После модуля</small><p>Поймете весь путь торгов — от поиска лота до заключения договора.</p></aside></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="section-no">06</div><div class="eyebrow">Что входит</div><h2 class="h2">Не только видеоуроки</h2></div>
+      <p class="lead">Сильный конкурент подробно показывает, что именно получает ученик помимо уроков. У тебя это тоже нужно продавать отдельно, потому что это повышает ощущение реальной ценности курса.</p>
+    </div>
+    <div class="included-grid">
+      <article class="included-item"><b>01</b><h3>70+ уроков</h3><p>Полная программа от законодательства и поиска до документов и земельных торгов.</p></article>
+      <article class="included-item"><b>02</b><h3>Практические инструкции</h3><p>Работа с НСПД, ПЗЗ, генпланом, АРГО Гео и ГИС Торги на конкретных действиях.</p></article>
+      <article class="included-item"><b>03</b><h3>Шаблоны документов</h3><p>Материалы, к которым можно возвращаться, когда будете проходить процедуру самостоятельно.</p></article>
+      <article class="included-item"><b>04</b><h3>Обратная связь</h3><p>В тарифе с сопровождением — возможность задавать вопросы по материалам курса в течение трех месяцев.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="author" id="author">
+  <div class="wrap author-grid">
+    <div class="author-photo"><img src="assets/ekaterina-waist-white.png" alt="Екатерина Шайхудинова"></div>
+    <div class="author-copy">
+      <div class="author-role">Автор курса · юрист в сфере земельного права</div>
+      <h2 class="author-name">Екатерина Шайхудинова</h2>
+      <p class="author-statement">«Земельный старт» я делаю не для юристов. Мне важно, чтобы человек без специального образования понимал, что искать в документах, зачем это проверять и что делать дальше.</p>
+      <div class="author-facts">
+        <div><strong>Практика</strong>Работаю с предоставлением земельных участков, градостроительной документацией, оформлением земли и спорами, связанными с отказами органов власти.</div>
+        <div><strong>Образование</strong>Заканчиваю магистратуру по направлению «Юриспруденция» и ежедневно работаю с земельными вопросами.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tariffs">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="section-no">07</div><div class="eyebrow">Тарифы</div><h2 class="h2">Выберите уровень поддержки</h2></div>
+      <p class="lead">Во всех тарифах — полная программа. Разница в том, нужна ли вам обратная связь и дополнительная юридическая работа по конкретной ситуации.</p>
+    </div>
+    <div class="pricing">
+      <article class="price"><div class="tag">Самостоятельно</div><h3>Самостоятельный</h3><div class="sum">7 900 ₽</div><ul><li>все модули и 70+ уроков</li><li>практические видео</li><li>пошаговые инструкции</li><li>шаблоны документов</li><li>обучение в своем темпе</li></ul><a class="btn alt" href="#lesson">Начать с бесплатного урока</a></article>
+      <article class="price featured"><div class="tag">Основной формат</div><h3>С сопровождением</h3><div class="sum">14 900 ₽</div><ul><li>все материалы самостоятельного тарифа</li><li>личная обратная связь в мессенджере</li><li>ответы на вопросы по материалам курса</li><li>поддержка в течение 3 месяцев</li></ul><a class="btn" href="#lesson">Хочу с сопровождением</a></article>
+      <article class="price"><div class="tag">Юридическая помощь</div><h3>Расширенный</h3><div class="sum" style="font-size:34px">Индивидуально</div><ul><li>все материалы тарифа с сопровождением</li><li>анализ одного отказа</li><li>правовая позиция и план действий</li><li>одно исковое или административное исковое заявление</li><li>процессуальные документы по одному делу</li></ul><a class="btn alt" href="#lesson">Обсудить формат</a></article>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap faq-layout">
+    <div><div class="section-no">08</div><div class="eyebrow">FAQ</div><h2 class="h2">Перед стартом</h2></div>
+    <div class="faq-list">
+      <details><summary>У меня нет юридического образования. Я разберусь?</summary><div class="faq-answer">Да. Курс рассчитан на обучение с нуля. Юридические термины используются там, где без них нельзя, и объясняются в контексте конкретных действий.</div></details>
+      <details><summary>Сколько денег нужно, кроме стоимости курса?</summary><div class="faq-answer">Это зависит от выбранного участка, региона, необходимости электронной подписи, программы для подготовки СРЗУ, задатка на торгах и других обстоятельств. В курсе вы разберетесь, какие расходы могут возникнуть на разных этапах.</div></details>
+      <details><summary>Курс подходит для любого региона?</summary><div class="faq-answer">Общая процедура опирается на федеральное законодательство, но региональные и муниципальные правила отличаются. Поэтому важно научиться находить актуальные документы именно для своей территории.</div></details>
+      <details><summary>Можно ли после курса использовать знания для заработка?</summary><div class="faq-answer">Навыки поиска и первичного анализа земли можно развивать и применять в работе с другими людьми. Но курс не обещает конкретный доход: он зависит от опыта, региона, набора услуг и дальнейшего профессионального развития.</div></details>
+      <details><summary>Гарантирует ли курс получение участка?</summary><div class="faq-answer">Нет. Возможность получения конкретного участка зависит от его характеристик, ограничений, документов, торгов и решений уполномоченного органа. Курс дает инструменты для грамотного поиска, проверки и прохождения процедуры.</div></details>
+      <details><summary>Что делать, если я уже получил отказ?</summary><div class="faq-answer">На курсе вы поймете логику процедуры и сможете определить, что именно нужно проверить. В расширенном формате предусмотрен правовой анализ одного отказа и подготовка дальнейшей позиции.</div></details>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="lesson">
+  <div class="wrap final-grid">
+    <div><div class="eyebrow" style="color:#E1E8CB">Первый шаг — бесплатно</div><h2>Сначала посмотрите, как я объясняю</h2></div>
+    <div><p>Получите бесплатный урок, познакомьтесь с форматом и только потом решайте, подходит ли вам обучение.</p><a class="btn" href="#">Получить бесплатный урок →</a></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footer"><span>© «Земельный старт»</span><span>Прототип. Перед публикацией: оферта · политика обработки персональных данных · реквизиты.</span></div>
+</footer>
+
+<script>
+document.querySelectorAll('.module-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const id=btn.dataset.id;
+    document.querySelectorAll('.module-btn').forEach(x=>x.classList.toggle('active',x===btn));
+    document.querySelectorAll('.module-panel').forEach(x=>x.classList.toggle('active',x.id===id));
+  });
+});
+</script>
+</body>
+</html>
