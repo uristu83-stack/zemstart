@@ -2241,6 +2241,210 @@ header,.hero,.project-section,.study-section,.syllabus-section,.ending-section{b
   .syllabus-module[open] .syllabus-note--result:first-child{margin-top:0!important}
 }
 
+/* 2026-09-30 — unified panels, stable course sidebar, animated details and
+   a completely new final chapter. */
+:root{--panel-radius:30px}
+
+/* Course materials always stay immediately under 70+, even when a long
+   module is opened in the right column. */
+@media(min-width:801px){
+  .syllabus-assets{margin-top:34px!important}
+}
+
+/* One radius for every substantial information panel on the site. */
+.value-price,
+.study-platform,
+.profile-portrait,
+.syllabus-module[open] .syllabus-content,
+.syllabus-module[open] .syllabus-note--result,
+.tariff-card,
+.ending-card,
+.modal-card.modal-card-simple{
+  border-radius:var(--panel-radius)!important;
+}
+.tariff-grid{gap:18px!important;border:0!important}
+.tariff-card,
+.tariff-card+.tariff-card{
+  padding:36px 34px 34px!important;
+  border:1px solid rgba(255,255,255,.18)!important;
+  background:rgba(255,255,255,.035)!important;
+}
+.tariff-card:nth-child(2){background:rgba(169,209,43,.085)!important}
+
+/* 03 — the untouched SVG is scaled uniformly. Its visible drawing now runs
+   from the “О проекте” line to the final “Понятно / Пошагово” line. */
+@media(min-width:801px){
+  .project-grid{align-items:stretch!important}
+  .project-logo-frame{
+    align-self:stretch!important;
+    height:auto!important;
+    min-height:100%!important;
+  }
+  .project-logo-frame img{
+    left:50%!important;
+    top:50%!important;
+    width:198%!important;
+    height:198%!important;
+    object-fit:contain!important;
+    transform:translate(-50%,-50%)!important;
+  }
+}
+
+/* 09 — final route card: one strong dark field instead of the previous
+   poster composition. */
+.ending-section{
+  position:relative!important;
+  padding:118px 0 122px!important;
+  overflow:hidden!important;
+  background:#A9D12B!important;
+  color:#fff!important;
+}
+.ending-section:before{display:none!important}
+.ending-shell{display:block!important}
+.ending-card{
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,1.35fr) minmax(300px,.55fr);
+  min-height:650px;
+  overflow:hidden;
+  padding:clamp(48px,5vw,76px);
+  background:#20221d;
+  color:#fff;
+  isolation:isolate;
+}
+.ending-card:after{
+  content:"09";
+  position:absolute;
+  z-index:-1;
+  right:-.08em;
+  top:.08em;
+  color:rgba(169,209,43,.13);
+  font:800 clamp(360px,32vw,560px)/.72 Manrope,sans-serif;
+  letter-spacing:-.14em;
+  pointer-events:none;
+}
+.ending-main{
+  display:flex!important;
+  min-width:0;
+  padding-right:clamp(40px,5vw,78px);
+  flex-direction:column;
+  align-items:flex-start;
+  border-right:1px solid rgba(255,255,255,.22);
+}
+.ending-eyebrow{
+  margin:0 0 54px!important;
+  padding:0!important;
+  border:0!important;
+  color:#A9D12B!important;
+  font:800 11px/1.2 Manrope,sans-serif!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase;
+}
+.ending-main h2{
+  max-width:850px!important;
+  margin:0!important;
+  color:#fff!important;
+  font:800 clamp(67px,7.2vw,112px)/.82 Manrope,sans-serif!important;
+  letter-spacing:-.072em!important;
+  text-transform:uppercase;
+}
+.ending-main h2 span{
+  display:block!important;
+  max-width:720px;
+  margin-top:10px;
+  color:#A9D12B!important;
+  font-size:.7em!important;
+  line-height:.88!important;
+}
+.ending-main p{
+  max-width:610px!important;
+  margin:42px 0 0!important;
+  padding:0!important;
+  background:transparent!important;
+  color:rgba(255,255,255,.7)!important;
+  font-size:18px!important;
+  line-height:1.58!important;
+}
+.ending-main .ending-button{
+  margin-top:auto!important;
+  width:min(450px,100%)!important;
+  background:#A9D12B!important;
+  border-color:#A9D12B!important;
+  color:#20221d!important;
+}
+.ending-main .ending-button:hover{background:transparent!important;color:#A9D12B!important}
+.ending-route{
+  position:relative;
+  z-index:1;
+  display:flex;
+  padding-left:clamp(36px,4vw,62px);
+  flex-direction:column;
+  justify-content:flex-end;
+}
+.ending-route-label{
+  margin-bottom:auto;
+  color:rgba(255,255,255,.5);
+  font:800 10px/1.3 Manrope,sans-serif;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+.ending-route-item{
+  display:grid;
+  grid-template-columns:38px minmax(0,1fr);
+  gap:18px;
+  align-items:start;
+  padding:22px 0;
+  border-top:1px solid rgba(255,255,255,.24);
+}
+.ending-route-item:last-child{border-bottom:1px solid rgba(255,255,255,.24)}
+.ending-route-item b{color:#A9D12B;font:800 11px/1.35 Manrope,sans-serif;letter-spacing:.12em}
+.ending-route-item span{max-width:230px;font:750 17px/1.25 Manrope,sans-serif;text-transform:uppercase;letter-spacing:-.025em}
+
+/* More visible, but restrained motion across the site. */
+@keyframes hero-in{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes logo-settle{from{opacity:0;transform:translate(-50%,-46%) scale(.94)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes panel-in{from{opacity:0;transform:translateY(32px) scale(.985)}to{opacity:1;transform:none}}
+.hero-copy>.eyebrow,.hero-copy>h1,.saving-note,.hero-copy>.lead,.hero-actions{opacity:0;animation:hero-in .8s cubic-bezier(.22,1,.36,1) both}
+.hero-copy>h1{animation-delay:.08s}.saving-note{animation-delay:.16s}.hero-copy>.lead{animation-delay:.24s}.hero-actions{animation-delay:.32s}
+.project-grid.visible .project-logo-frame img{animation:logo-settle 1.05s cubic-bezier(.22,1,.36,1) both}
+.project-kicker,.project-copy h2,.project-copy p,.project-end{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .8s cubic-bezier(.22,1,.36,1)}
+.project-grid.visible .project-kicker,.project-grid.visible .project-copy h2,.project-grid.visible .project-copy p,.project-grid.visible .project-end{opacity:1;transform:none}
+.project-grid.visible .project-copy h2{transition-delay:.08s}.project-grid.visible .project-copy p:nth-of-type(1){transition-delay:.16s}.project-grid.visible .project-copy p:nth-of-type(2){transition-delay:.24s}.project-grid.visible .project-end{transition-delay:.32s}
+.study-features article,.syllabus-module summary{transition:transform .35s cubic-bezier(.22,1,.36,1),background-color .3s ease}
+.study-features article:hover{transform:translateX(10px)}
+.syllabus-module summary:hover .syllabus-heading{transform:translateX(8px)}
+.syllabus-heading{transition:transform .32s cubic-bezier(.22,1,.36,1)}
+.value-price,.study-platform,.profile-portrait,.tariff-card{transition:transform .35s cubic-bezier(.22,1,.36,1),border-color .3s ease,background-color .3s ease!important}
+.value-price:hover,.study-platform:hover,.tariff-card:hover{transform:translateY(-7px)}
+.ending-shell.visible .ending-card{animation:panel-in .9s cubic-bezier(.22,1,.36,1) both}
+.ending-route-item{opacity:0;transform:translateX(24px);transition:opacity .55s ease,transform .75s cubic-bezier(.22,1,.36,1)}
+.ending-shell.visible .ending-route-item{opacity:1;transform:none}
+.ending-shell.visible .ending-route-item:nth-child(3){transition-delay:.12s}.ending-shell.visible .ending-route-item:nth-child(4){transition-delay:.24s}
+
+@media(max-width:1050px){
+  .tariff-grid{gap:0!important}
+  .tariff-card,.tariff-card+.tariff-card{margin-top:16px!important;padding:34px!important;border:1px solid rgba(255,255,255,.18)!important}
+  .tariff-card:first-child{margin-top:0!important}
+}
+@media(max-width:800px){
+  .project-logo-frame img{width:185%!important;height:185%!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;object-fit:contain!important}
+  .ending-section{padding:78px 0 84px!important}
+  .ending-card{display:block;min-height:0;padding:34px 26px 30px}
+  .ending-card:after{right:-.18em;top:.1em;font-size:260px}
+  .ending-main{display:block!important;padding:0 0 34px;border:0;border-bottom:1px solid rgba(255,255,255,.22)}
+  .ending-eyebrow{margin-bottom:34px!important}
+  .ending-main h2{font-size:clamp(46px,11vw,68px)!important}
+  .ending-main p{margin-top:29px!important;font-size:17px!important}
+  .ending-main .ending-button{margin-top:34px!important}
+  .ending-route{padding:32px 0 0}
+  .ending-route-label{margin-bottom:18px}
+  .ending-route-item span{max-width:none;font-size:15px}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-copy>.eyebrow,.hero-copy>h1,.saving-note,.hero-copy>.lead,.hero-actions,.project-grid.visible .project-logo-frame img,.ending-shell.visible .ending-card{opacity:1;animation:none!important;transform:none}
+  .project-kicker,.project-copy h2,.project-copy p,.project-end,.ending-route-item{opacity:1;transform:none;transition:none!important}
+}
+
   </style>
 </head>
 <body>
@@ -2363,9 +2567,20 @@ header,.hero,.project-section,.study-section,.syllabus-section,.ending-section{b
 
     <section class="ending-section" id="lesson">
   <div class="wrap ending-shell reveal">
-    <div class="ending-eyebrow">Начните бесплатно</div>
-    <div class="ending-main"><h2>Свой участок<br><span>начинается с первого шага</span></h2><p>Посмотрите первый урок и разберитесь, из каких этапов состоит путь от поиска земли до оформления участка под строительство дома.</p></div>
-    <div class="ending-bottom"><span>Первый урок · бесплатно</span><a class="ending-button js-open-lesson" href="#lesson"><span>Получить бесплатный урок</span><svg class="cta-arrow" aria-hidden="true" viewBox="0 0 26 26"><path d="M4 22 22 4M9 4h13v13"/></svg></a></div>
+    <div class="ending-card">
+      <div class="ending-main">
+        <div class="ending-eyebrow">Первый урок · бесплатно</div>
+        <h2>Свой участок<span>начинается с первого шага</span></h2>
+        <p>Посмотрите вводный урок и разберитесь, из каких этапов состоит путь от поиска земли до оформления участка под строительство дома.</p>
+        <a class="ending-button js-open-lesson" href="#lesson"><span>Получить бесплатный урок</span><svg class="cta-arrow" aria-hidden="true" viewBox="0 0 26 26"><path d="M4 22 22 4M9 4h13v13"/></svg></a>
+      </div>
+      <div class="ending-route" aria-label="Что даст первый урок">
+        <div class="ending-route-label">После урока</div>
+        <div class="ending-route-item"><b>01</b><span>Увидите весь маршрут</span></div>
+        <div class="ending-route-item"><b>02</b><span>Поймете порядок действий</span></div>
+        <div class="ending-route-item"><b>03</b><span>Определите первый шаг</span></div>
+      </div>
+    </div>
   </div>
 </section>
   </main>
