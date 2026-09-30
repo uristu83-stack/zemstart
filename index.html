@@ -1907,7 +1907,288 @@ header,.hero,.project-section,.study-section,.syllabus-section,.ending-section{b
   .ending-bottom{margin-top:42px!important}
 }
 
-  </style>
+  
+
+/* 2026-09-30 — clean editorial rebuild after visual QA. */
+@media(min-width:801px){
+  /* Keep the complete logo visible. Only its internal horizontal whitespace is
+     compensated; the original SVG is not cropped vertically. */
+  .project-logo-frame{
+    height:clamp(500px,38vw,610px)!important;
+    aspect-ratio:auto!important;
+    overflow:hidden!important;
+  }
+  .project-logo-frame img{
+    position:absolute!important;
+    left:50%!important;
+    top:0!important;
+    width:100%!important;
+    height:100%!important;
+    max-width:none!important;
+    object-fit:contain!important;
+    transform:translateX(-50%) scaleX(2.08)!important;
+    transform-origin:center center!important;
+  }
+
+  /* 07 — editorial course index: a quiet fixed introduction and one clear
+     vertical rhythm for every module. */
+  .syllabus-section{
+    padding:126px 0 138px!important;
+    background:#A9D12B!important;
+  }
+  .syllabus-shell{
+    display:grid!important;
+    grid-template-columns:minmax(300px,.72fr) minmax(0,1.28fr)!important;
+    gap:clamp(72px,8vw,132px)!important;
+    align-items:start!important;
+  }
+  .syllabus-intro{
+    position:sticky!important;
+    top:118px!important;
+    display:block!important;
+    padding:0!important;
+    border:0!important;
+  }
+  .syllabus-eyebrow{
+    display:flex!important;
+    align-items:center!important;
+    gap:16px!important;
+    margin:0 0 34px!important;
+    padding:0 0 18px!important;
+    border:0!important;
+    border-bottom:1px solid rgba(32,34,29,.55)!important;
+  }
+  .syllabus-eyebrow:after{content:"";width:64px;height:1px;background:currentColor;opacity:.6}
+  .syllabus-intro h2{
+    margin:0 0 34px!important;
+    max-width:520px!important;
+    font-size:clamp(62px,5.6vw,90px)!important;
+    line-height:.84!important;
+  }
+  .syllabus-intro h2 span{
+    display:block!important;
+    margin:7px 0 0!important;
+    color:#fff!important;
+    font-size:.72em!important;
+    line-height:.9!important;
+    white-space:normal!important;
+  }
+  .syllabus-intro>p{
+    max-width:450px!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    font-size:17px!important;
+    line-height:1.58!important;
+  }
+  .syllabus-total{
+    display:grid!important;
+    grid-template-columns:auto minmax(0,1fr)!important;
+    align-items:end!important;
+    gap:18px!important;
+    width:100%!important;
+    max-width:450px!important;
+    margin:42px 0 0!important;
+    padding:24px 0 0!important;
+    border:0!important;
+    border-top:1px solid rgba(32,34,29,.55)!important;
+    color:#20221d!important;
+  }
+  .syllabus-total strong{
+    color:#fff!important;
+    font-size:clamp(68px,6vw,96px)!important;
+    line-height:.75!important;
+  }
+  .syllabus-total span{max-width:210px!important;padding:0 0 2px!important;font-size:13px!important;line-height:1.4!important}
+  .syllabus-list{
+    display:block!important;
+    min-width:0!important;
+    margin:0!important;
+    border:0!important;
+    border-top:2px solid #20221d!important;
+    background:transparent!important;
+  }
+  .syllabus-module,
+  .syllabus-module:nth-child(2),
+  .syllabus-module:nth-child(3),
+  .syllabus-module:nth-child(4){
+    min-height:0!important;
+    margin:0!important;
+    border:0!important;
+    border-bottom:1px solid rgba(32,34,29,.55)!important;
+    background:transparent!important;
+    color:#20221d!important;
+  }
+  .syllabus-module summary,
+  .syllabus-module[open] summary{
+    display:grid!important;
+    grid-template-columns:54px minmax(0,1fr) 44px!important;
+    gap:20px!important;
+    align-items:center!important;
+    min-height:0!important;
+    padding:30px 0 32px!important;
+  }
+  .syllabus-index{
+    order:initial!important;
+    padding:4px 0 0!important;
+    color:inherit!important;
+    font-size:12px!important;
+    line-height:1!important;
+    letter-spacing:.12em!important;
+    opacity:.65!important;
+  }
+  .syllabus-heading,
+  .syllabus-module[open] .syllabus-heading{
+    order:initial!important;
+    margin:0!important;
+    max-width:660px!important;
+    color:inherit!important;
+    font:800 clamp(25px,2.25vw,36px)/1.02 Manrope,sans-serif!important;
+    letter-spacing:-.045em!important;
+    overflow-wrap:normal!important;
+    word-break:normal!important;
+  }
+  .syllabus-toggle{
+    order:initial!important;
+    position:relative!important;
+    right:auto!important;
+    top:auto!important;
+    width:44px!important;
+    height:44px!important;
+    border:1px solid rgba(32,34,29,.72)!important;
+    border-radius:50%!important;
+    transform:none!important;
+  }
+  .syllabus-toggle:before,.syllabus-toggle:after{background:#20221d!important}
+  .syllabus-module[open] .syllabus-toggle{background:#20221d!important;transform:rotate(45deg)!important}
+  .syllabus-module[open] .syllabus-toggle:before,.syllabus-module[open] .syllabus-toggle:after{background:#A9D12B!important}
+  .syllabus-module[open] .syllabus-content{
+    display:block!important;
+    margin:0 0 34px 74px!important;
+    padding:38px 40px 42px!important;
+    border-radius:2px 28px 28px 28px!important;
+    background:#20221d!important;
+    color:#fff!important;
+  }
+  .syllabus-module[open] .syllabus-description{
+    max-width:760px!important;
+    margin-bottom:31px!important;
+    color:rgba(255,255,255,.78)!important;
+    font-size:17px!important;
+    line-height:1.58!important;
+  }
+  .syllabus-module[open] .syllabus-columns{grid-template-columns:minmax(0,1.18fr) minmax(230px,.72fr)!important;gap:44px!important}
+  .syllabus-module[open] h4{color:#A9D12B!important}
+  .syllabus-module[open] li{border-color:rgba(255,255,255,.16)!important;color:rgba(255,255,255,.82)!important}
+  .syllabus-module[open] .syllabus-outcome{border-color:#A9D12B!important}
+
+  /* 09 — a full-width closing poster. The copy, explanation and action share
+     the same baseline grid and never compete with the background number. */
+  .ending-section{
+    padding:124px 0 112px!important;
+    background:#A9D12B!important;
+    color:#20221d!important;
+  }
+  .ending-section:before{color:rgba(255,255,255,.20)!important}
+  .ending-shell{display:block!important}
+  .ending-eyebrow{
+    margin:0 0 46px!important;
+    padding:0 0 19px!important;
+    border:0!important;
+    border-bottom:1px solid rgba(32,34,29,.55)!important;
+    color:#20221d!important;
+  }
+  .ending-main{
+    display:grid!important;
+    grid-template-columns:minmax(0,1.45fr) minmax(290px,.55fr)!important;
+    gap:clamp(54px,7vw,108px)!important;
+    align-items:end!important;
+  }
+  .ending-main h2{
+    grid-column:auto!important;
+    margin:0!important;
+    max-width:860px!important;
+    color:#20221d!important;
+    font-size:clamp(62px,6.6vw,104px)!important;
+    line-height:.84!important;
+    letter-spacing:-.073em!important;
+  }
+  .ending-main h2 span{display:block!important;color:#fff!important}
+  .ending-main p{
+    grid-column:auto!important;
+    max-width:390px!important;
+    margin:0!important;
+    padding:0 0 6px!important;
+    background:transparent!important;
+    color:#20221d!important;
+    font-size:18px!important;
+    line-height:1.58!important;
+  }
+  .ending-bottom{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:32px!important;
+    margin:78px 0 0!important;
+    padding:24px 0 0!important;
+    border:0!important;
+    border-top:1px solid rgba(32,34,29,.55)!important;
+    color:#20221d!important;
+  }
+  .ending-button{
+    width:min(440px,100%)!important;
+    background:#20221d!important;
+    border-color:#20221d!important;
+    color:#fff!important;
+  }
+  .ending-button:hover{background:transparent!important;color:#20221d!important}
+}
+
+@media(max-width:800px){
+  .project-logo-frame{height:min(108vw,500px)!important;aspect-ratio:auto!important;overflow:hidden!important}
+  .project-logo-frame img{
+    position:absolute!important;
+    left:50%!important;
+    top:0!important;
+    width:100%!important;
+    height:100%!important;
+    max-width:none!important;
+    object-fit:contain!important;
+    transform:translateX(-50%) scaleX(2.02)!important;
+    transform-origin:center center!important;
+  }
+  .syllabus-section{padding:82px 0 92px!important}
+  .syllabus-shell{display:block!important}
+  .syllabus-intro{display:block!important;padding:0!important;border:0!important}
+  .syllabus-eyebrow{margin:0 0 27px!important;padding:0 0 15px!important;border-bottom:1px solid rgba(32,34,29,.5)!important}
+  .syllabus-intro h2{margin:0 0 25px!important;font-size:clamp(48px,12vw,68px)!important;line-height:.86!important}
+  .syllabus-intro h2 span{display:block!important;margin-top:5px!important;color:#fff!important;font-size:.8em!important;line-height:.9!important}
+  .syllabus-intro>p{margin:0!important;padding:0!important;border:0!important;font-size:17px!important;line-height:1.57!important}
+  .syllabus-total{display:flex!important;width:auto!important;margin:28px 0 0!important;padding:20px 0 0!important;border-top:1px solid rgba(32,34,29,.5)!important}
+  .syllabus-total strong{color:#fff!important;font-size:72px!important}
+  .syllabus-list{display:block!important;margin:44px 0 0!important;border:0!important;border-top:2px solid #20221d!important;background:transparent!important}
+  .syllabus-module,.syllabus-module:nth-child(2),.syllabus-module:nth-child(3),.syllabus-module:nth-child(4){min-height:0!important;border:0!important;border-bottom:1px solid rgba(32,34,29,.5)!important;background:transparent!important;color:#20221d!important}
+  .syllabus-module summary,.syllabus-module[open] summary{display:grid!important;grid-template-columns:29px minmax(0,1fr) 36px!important;gap:10px!important;align-items:center!important;min-height:0!important;padding:22px 0!important}
+  .syllabus-index{order:initial!important;padding:3px 0 0!important;color:inherit!important;font-size:11px!important;opacity:.65!important}
+  .syllabus-heading,.syllabus-module[open] .syllabus-heading{order:initial!important;margin:0!important;color:inherit!important;font-size:clamp(21px,5.4vw,27px)!important;line-height:1.04!important;letter-spacing:-.04em!important;overflow-wrap:normal!important;word-break:normal!important}
+  .syllabus-toggle{order:initial!important;width:36px!important;height:36px!important;border-color:rgba(32,34,29,.7)!important;transform:none!important}
+  .syllabus-module[open] .syllabus-toggle{background:#20221d!important;transform:rotate(45deg)!important}
+  .syllabus-module[open] .syllabus-content{margin:0 0 22px!important;padding:25px 21px 28px!important;border-radius:2px 22px 22px 22px!important;background:#20221d!important;color:#fff!important}
+  .syllabus-module[open] .syllabus-description{color:rgba(255,255,255,.8)!important;font-size:16px!important}
+  .syllabus-module[open] h4{color:#A9D12B!important}
+  .syllabus-module[open] li{border-color:rgba(255,255,255,.16)!important;color:rgba(255,255,255,.82)!important}
+  .ending-section{padding:82px 0 82px!important;background:#A9D12B!important;color:#20221d!important}
+  .ending-section:before{color:rgba(255,255,255,.20)!important}
+  .ending-eyebrow{margin:0 0 30px!important;padding:0 0 15px!important;border-bottom:1px solid rgba(32,34,29,.5)!important;color:#20221d!important}
+  .ending-main{display:block!important}
+  .ending-main h2{margin:0!important;color:#20221d!important;font-size:clamp(46px,11.3vw,68px)!important;line-height:.86!important;letter-spacing:-.07em!important}
+  .ending-main h2 span{display:block!important;color:#fff!important}
+  .ending-main p{max-width:560px!important;margin:28px 0 0!important;padding:0!important;background:transparent!important;color:#20221d!important;font-size:17px!important;line-height:1.57!important}
+  .ending-bottom{display:block!important;margin:44px 0 0!important;padding:20px 0 0!important;border-top:1px solid rgba(32,34,29,.5)!important;color:#20221d!important}
+  .ending-button{margin-top:22px!important;width:100%!important;background:#20221d!important;border-color:#20221d!important;color:#fff!important}
+}
+
+</style>
 </head>
 <body>
   <header><div class="wrap nav">
