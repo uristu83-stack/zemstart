@@ -1781,6 +1781,40 @@ header,.hero,.project-section,.study-section,.syllabus-section,.ending-section{b
 }
 @media(prefers-reduced-motion:reduce){.study-shell.visible,.profile-shell.visible,.syllabus-shell.visible,.ending-shell.visible,.project-grid.visible .project-logo-frame,.study-section:before,.profile-section:before,.syllabus-section:before,.ending-section:before{animation:none!important}}
 
+
+/* 2026-09-30 — measured desktop alignment from the approved review. */
+@media(min-width:801px){
+  /* 03. Keep the complete project mark inside its own column and restore the
+     breathing room below the copy before the ticker starts. */
+  .project-section{padding-bottom:106px!important}
+  .project-section + .marquee{margin-top:-12px!important}
+  .project-logo-frame{height:auto!important;aspect-ratio:1/1!important;overflow:visible!important}
+  .project-logo-frame img{position:static!important;left:auto!important;top:auto!important;width:100%!important;height:100%!important;max-width:100%!important;object-fit:contain!important;transform:none!important}
+  .project-number{top:8%!important;bottom:auto!important;right:-.06em!important}
+
+  /* 04. The number stays behind the heading, but no longer disappears above it. */
+  .outcomes.results-v3:after{top:56px!important;right:-.025em!important;bottom:auto!important}
+
+  /* 05. The three explanations have the same readable measure as the heading
+     column; the complete number remains visible inside the section. */
+  .study-shell{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:60px 8%!important}
+  .study-heading{max-width:720px}
+  .study-features{width:100%;max-width:720px;justify-self:start}
+  .study-section:before{right:1.5vw!important;top:58px!important;font-size:clamp(320px,34vw,560px)!important}
+
+  /* 06. The biography and the author's task form one column exactly as tall
+     as the portrait, with both starting and ending on the photo's edges. */
+  .profile-title span{margin-left:0!important}
+  .profile-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:clamp(48px,6vw,96px)!important;align-items:stretch!important}
+  .profile-copy{min-height:660px;display:flex;flex-direction:column}
+  .profile-quote{margin-top:auto!important;margin-bottom:0!important;padding-top:26px!important;font-size:clamp(20px,1.7vw,28px)!important}
+
+  /* 08 and 09. Remove the unnecessary rule under the tariffs heading and pull
+     the final section number fully into view. */
+  .tariffs-v2-head{border-bottom:0!important}
+  .ending-section:before{right:clamp(10px,2vw,36px)!important;top:clamp(54px,6vw,92px)!important}
+}
+
   </style>
 </head>
 <body>
@@ -1859,9 +1893,9 @@ header,.hero,.project-section,.study-section,.syllabus-section,.ending-section{b
           <p><span>Образование</span>Заканчиваю магистратуру по направлению «Юриспруденция».</p>
           <p><span>Подход</span>Объясняю процедуру простым языком и показываю, как применять знания на практике — от выбора территории до подачи документов.</p>
         </div>
+    <p class="profile-quote">«Моя задача — дать вам понятную последовательность действий, к которой можно возвращаться при работе со следующими участками».</p>
       </div>
     </div>
-    <p class="profile-quote">«Моя задача — дать вам понятную последовательность действий, к которой можно возвращаться при работе со следующими участками».</p>
   </div>
 </section>
 
